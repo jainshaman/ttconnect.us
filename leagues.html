@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leagues · Coming Soon · TTConnect</title>
+<meta name="description" content="The TTConnect leagues directory is on its way. Get an email when leagues open up near you." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  /* Coming-soon scene (shared pattern with clubs.html) */
+  .cs {
+    position: relative;
+    padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 110px);
+    overflow: hidden;
+  }
+  .cs__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+  }
+  @media (max-width: 900px) { .cs__inner { grid-template-columns: 1fr; } }
+  .cs h1 { font-size: clamp(48px, 7.5vw, 96px); letter-spacing: -0.035em; margin-top: 18px; }
+  .cs h1 .accent { color: var(--orange); font-style: italic; font-weight: 500; position: relative; display: inline-block; }
+  .cs h1 .accent::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6%; height: 14px; background: var(--ink); opacity: 0.08; z-index: -1; border-radius: 4px; }
+  .cs__sub { margin-top: 22px; max-width: 50ch; }
+  .cs__form { margin-top: 36px; display: flex; gap: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-full); padding: 6px 6px 6px 22px; align-items: center; max-width: 520px; transition: border-color .15s ease; }
+  .cs__form:focus-within { border-color: var(--forest); }
+  .cs__form input { flex: 1; border: none; outline: none; background: transparent; font: 500 16px/1 var(--body); color: var(--ink); padding: 14px 0; min-width: 0; }
+  .cs__form input::placeholder { color: var(--ink-3); }
+  .cs__hint { margin-top: 14px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-3); }
+
+  /* Leagues "bracket" art */
+  .cs-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--r-xl);
+    background: var(--forest);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(19, 59, 42, 0.5);
+  }
+  .cs-art__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px; }
+  .cs-art__chip {
+    position: absolute;
+    top: 32px; left: 32px;
+    background: rgba(10, 42, 29, 0.85);
+    border: 1px solid rgba(255, 250, 240, 0.12);
+    border-radius: var(--r-full);
+    padding: 8px 14px;
+    font-family: var(--mono);
+    color: rgba(255, 250, 240, 0.75);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .cs-art__chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(204, 31, 58, 0.25); animation: pulse 1.8s ease-in-out infinite; }
+
+  /* SVG bracket */
+  .cs-art__bracket { position: absolute; inset: 90px 32px 120px 32px; }
+  .cs-art__bracket svg { width: 100%; height: 100%; }
+
+  .cs-art__big {
+    position: absolute;
+    bottom: 26px;
+    left: 32px;
+    right: 32px;
+    color: var(--paper);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 5.5vw, 60px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .cs-art__big small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 250, 240, 0.55);
+    margin-bottom: 12px;
+  }
+  .cs-art__big .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+
+  /* Roadmap cards (shared style) */
+  .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 880px) { .roadmap { grid-template-columns: 1fr; } }
+  .rm { background: var(--paper); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: 26px; display: flex; flex-direction: column; gap: 12px; }
+  .rm__when { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); display: inline-flex; align-items: center; gap: 8px; }
+  .rm__when::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cream-3); }
+  .rm.is-now { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .rm.is-now .rm__when { color: rgba(255,250,240,0.65); }
+  .rm.is-now .rm__when::before { background: var(--orange); box-shadow: 0 0 0 4px rgba(204, 31, 58, 0.25); }
+  .rm.is-now h3, .rm.is-now p { color: var(--paper); }
+  .rm.is-now p { color: rgba(255,250,240,0.78); }
+  .rm h3 { font-size: 22px; }
+  .rm p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home"><span class="logo__ball" aria-hidden="true"></span><span><b>TT</b><span>Connect</span></span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html" class="is-current">Leagues</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="#signin">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="index.html#join">Join free</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="cs">
+    <div class="cs__inner">
+      <div>
+        <span class="eyebrow">Leagues directory · coming soon</span>
+        <h1>We're <span class="accent">drawing up the brackets</span>.</h1>
+        <p class="lead cs__sub">Singles, doubles, round-robin, ladder — we're building the league finder so you can spot the right night, the right level, and the right venue without trawling Facebook groups for an hour.</p>
+
+        <form class="cs__form" onsubmit="event.preventDefault(); var f=this; f.querySelector('button').textContent='You\u2019re on the list ✓'; f.querySelector('button').disabled=true; f.querySelectorAll('input').forEach(function(i){i.disabled=true;});">
+          <input type="email" placeholder="you@example.com" required aria-label="Email" />
+          <input type="text" placeholder="ZIP" required aria-label="ZIP code" pattern="[0-9]{5}" maxlength="5" style="max-width:80px; padding-left:6px;" />
+          <button class="btn btn--primary" type="submit">Notify me</button>
+        </form>
+        <div class="cs__hint">No spam — one email when leagues go live near you · <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy</a></div>
+      </div>
+
+      <div class="cs-art" aria-hidden="true">
+        <div class="cs-art__grid"></div>
+
+        <span class="cs-art__chip">Bracket · drafting</span>
+
+        <div class="cs-art__bracket">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <g stroke="rgba(255,250,240,0.45)" stroke-width="1.5" fill="none">
+              <!-- Round 1 lines (left) -->
+              <path d="M20 50 L100 50 L100 80 L180 80"/>
+              <path d="M20 110 L100 110 L100 80 L180 80"/>
+              <path d="M20 180 L100 180 L100 210 L180 210"/>
+              <path d="M20 240 L100 240 L100 210 L180 210"/>
+              <path d="M20 290 L100 290 L100 320 L180 320"/>
+              <path d="M20 350 L100 350 L100 320 L180 320"/>
+              <!-- Round 2 -->
+              <path d="M180 80 L180 145 L260 145"/>
+              <path d="M180 210 L180 145 L260 145"/>
+              <path d="M180 320 L180 285 L260 285"/>
+              <!-- Final -->
+              <path d="M260 145 L260 215 L340 215"/>
+              <path d="M260 285 L260 215 L340 215"/>
+            </g>
+            <!-- Player dots -->
+            <g fill="rgba(255,250,240,0.85)">
+              <circle cx="20" cy="50" r="4"/>
+              <circle cx="20" cy="110" r="4"/>
+              <circle cx="20" cy="180" r="4"/>
+              <circle cx="20" cy="240" r="4"/>
+              <circle cx="20" cy="290" r="4"/>
+              <circle cx="20" cy="350" r="4"/>
+            </g>
+            <!-- "??" placeholders on the right -->
+            <g fill="#cc1f3a">
+              <circle cx="340" cy="215" r="7"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,250,240,0.55)" letter-spacing="1">
+              <text x="200" y="80" text-anchor="middle">— vs —</text>
+              <text x="200" y="210" text-anchor="middle">— vs —</text>
+              <text x="200" y="320" text-anchor="middle">— vs —</text>
+              <text x="280" y="145" text-anchor="middle">TBD</text>
+              <text x="280" y="285" text-anchor="middle">TBD</text>
+              <text x="360" y="200" text-anchor="middle" fill="#cc1f3a" font-size="10">FINAL</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="cs-art__big">
+          <small>Status · summer 2026</small>
+          Coming<br/><span class="accent">soon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">What's coming</span>
+          <h2 style="margin-top:18px;">A league finder built for recreational players.</h2>
+        </div>
+        <p>Find a league at your level, on your night, in your city — without joining three Facebook groups to do it.</p>
+      </div>
+
+      <div class="roadmap">
+        <article class="rm is-now">
+          <span class="rm__when">In progress · now</span>
+          <h3>Mapping the first leagues.</h3>
+          <p>We're cataloging singles, doubles, ladder, and round-robin formats — with real level guidance from the people who run them.</p>
+        </article>
+        <article class="rm">
+          <span class="rm__when">Next · summer</span>
+          <h3>Filters that actually matter.</h3>
+          <p>Sort by night, level (USATT or self-rated), format, distance, and open spots. The list, but useful.</p>
+        </article>
+        <article class="rm">
+          <span class="rm__when">After · fall</span>
+          <h3>Standings and signups.</h3>
+          <p>Track your match results, see the league standings, and sign up for the next season without leaving TTConnect.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="joinbox" style="grid-template-columns: 1fr;">
+        <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; justify-content:space-between;">
+          <div style="max-width:48ch;">
+            <span class="eyebrow">For organizers</span>
+            <h2 style="margin-top:14px;">Run a league? We'd love to list you first.</h2>
+            <p style="margin-top:14px;">If you organize regular play, email us with the format, night, and level. We'll get you on the directory the day it goes live — free, forever.</p>
+          </div>
+          <a class="btn btn--primary btn--lg" href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20league%20on%20TTConnect">List your league <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="mailto:ttconnectadmin@gmail.com">Contact</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20club">List your club</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=Press%20inquiry">Press</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · ttconnect.us</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

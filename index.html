@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TTConnect — Where US table tennis connects</title>
+<meta name="description" content="TTConnect helps recreational table tennis players in the US find clubs, join leagues, and organize play — all in one friendly community." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home">
+      <span class="logo__ball" aria-hidden="true"></span>
+      <span><b>TT</b><span>Connect</span></span>
+    </a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html">Leagues</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="#signin">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="#join">Join free</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">A community for US table tennis</span>
+        <h1>Find your club.<br/>Join a league.<br/><span class="accent">Play more table tennis.</span></h1>
+        <p class="lead hero__sub">TTConnect helps recreational players across the United States find a place to play, connect with leagues nearby, and organize friendly matches — all in one home.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="clubs.html">Find a club near me <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost btn--lg" href="leagues.html">Browse leagues</a>
+        </div>
+        <div class="hero__meta">
+          <div><strong>Coming</strong><span>summer 2026</span></div>
+          <div><strong>50 states</strong><span>nationwide rollout</span></div>
+          <div><strong>Free forever</strong><span>for players</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-art__grid"></div>
+        <div class="hero-art__net"></div>
+        <div class="hero-art__ball"></div>
+        <svg class="hero-art__paddle" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="90" rx="86" ry="88" fill="#cc1f3a"/>
+          <ellipse cx="100" cy="90" rx="86" ry="88" fill="url(#paddleSheen)"/>
+          <ellipse cx="100" cy="90" rx="70" ry="72" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
+          <rect x="90" y="160" width="20" height="74" rx="6" fill="#3a2a1a"/>
+          <rect x="86" y="174" width="28" height="48" rx="4" fill="#2a1f12"/>
+          <defs>
+            <linearGradient id="paddleSheen" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+              <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="hero-art__label">rallying online · summer 2026 launch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== STATS ====== -->
+  <section class="stats" aria-label="What we're building">
+    <div class="stats__grid">
+      <div class="stat">
+        <div class="stat__n">Clubs<span class="unit">.</span></div>
+        <div class="stat__l">Verified · coming soon</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">Leagues<span class="unit">.</span></div>
+        <div class="stat__l">Every format · coming soon</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">Players<span class="unit">.</span></div>
+        <div class="stat__l">Profiles · coming soon</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">Events<span class="unit">.</span></div>
+        <div class="stat__l">Tournaments · coming soon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== HOW IT WORKS ====== -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">How TTConnect works</span>
+          <h2 style="margin-top:18px;">Three steps from couch to clubhouse.</h2>
+        </div>
+        <p>We make it ridiculously easy to find people to play with — whether you're picking up a paddle for the first time in years or you're a seasoned league regular.</p>
+      </div>
+
+      <div class="cards-3">
+        <article class="step">
+          <div class="step__n">01</div>
+          <h3>Find a club</h3>
+          <p>Search by ZIP code or browse the map. Every listing has open-play hours, table count, fees, and what the regulars are like.</p>
+        </article>
+        <article class="step">
+          <div class="step__n">02</div>
+          <h3>Join a league</h3>
+          <p>Singles, doubles, ladder, round-robin — we surface leagues at your level so you're never the worst (or best) player in the room.</p>
+        </article>
+        <article class="step">
+          <div class="step__n">03</div>
+          <h3>Play & connect</h3>
+          <p>Track your matches, message other players, and organize sessions. The point isn't the rating — it's the rally.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FEATURED LEAGUES ====== -->
+  <section class="section section--tight" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Featured leagues</span>
+          <h2 style="margin-top:18px;">Leagues are lining up.</h2>
+        </div>
+        <p>From singles ladders to doubles round-robins to beginner nights — we're cataloging every recreational league in the US. List goes live summer 2026.</p>
+      </div>
+
+      <div class="league-grid">
+        <a href="leagues.html" class="league-card">
+          <div class="league-card__banner">
+            <svg viewBox="0 0 400 140" aria-hidden="true"><g stroke="#fff" stroke-width="1" opacity="0.4"><path d="M0 70 H400" /><path d="M200 0 V140" /><circle cx="200" cy="70" r="40" fill="none"/><circle cx="200" cy="70" r="20" fill="none"/></g></svg>
+            <span class="league-card__chip">Coming soon</span>
+          </div>
+          <div class="league-card__body">
+            <div class="league-card__loc">Singles · ladder &amp; round-robin</div>
+            <div class="league-card__title">The Tuesday-night regulars.</div>
+            <div class="league-card__meta">
+              <span><strong>All levels</strong></span>
+              <span><strong>Summer 2026</strong></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="leagues.html" class="league-card">
+          <div class="league-card__banner b-cream">
+            <svg viewBox="0 0 400 140" aria-hidden="true"><g stroke="#1a1a18" stroke-width="1" opacity="0.4"><circle cx="80" cy="70" r="50" fill="none"/><circle cx="200" cy="70" r="50" fill="none"/><circle cx="320" cy="70" r="50" fill="none"/></g></svg>
+            <span class="league-card__chip">Coming soon</span>
+          </div>
+          <div class="league-card__body">
+            <div class="league-card__loc">Doubles · friendly format</div>
+            <div class="league-card__title">Bring a partner, leave with friends.</div>
+            <div class="league-card__meta">
+              <span><strong>All levels</strong></span>
+              <span><strong>Summer 2026</strong></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="leagues.html" class="league-card">
+          <div class="league-card__banner b-orange">
+            <svg viewBox="0 0 400 140" aria-hidden="true"><g stroke="#fff" stroke-width="1.2" opacity="0.5"><path d="M0 30 L400 30 M0 70 L400 70 M0 110 L400 110"/><path d="M50 0 L50 140 M150 0 L150 140 M250 0 L250 140 M350 0 L350 140"/></g></svg>
+            <span class="league-card__chip">Coming soon</span>
+          </div>
+          <div class="league-card__body">
+            <div class="league-card__loc">Beginner nights · coached play</div>
+            <div class="league-card__title">First paddle in 20 years? Welcome.</div>
+            <div class="league-card__meta">
+              <span><strong>2.0K and under</strong></span>
+              <span><strong>Summer 2026</strong></span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top:32px; display:flex; justify-content:center;">
+        <a class="btn btn--ghost" href="leagues.html">Get notified when leagues open <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== US MAP ====== -->
+  <section class="section section--tight" id="map">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Coast to coast</span>
+          <h2 style="margin-top:18px;">A national map, in the works.</h2>
+        </div>
+        <p>We're plotting the first launch cities now — major metros first, then everywhere else. The map fills in fast once we're live.</p>
+      </div>
+
+      <div class="map" aria-label="Map of US table tennis clubs">
+        <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img">
+          <!-- Stylized US outline (very simplified) -->
+          <g fill="none" stroke="#d6cdb8" stroke-width="1.2">
+            <path d="M70 220 L110 160 L160 130 L220 120 L290 115 L380 105 L470 95 L560 110 L640 130 L700 160 L730 200 L740 260 L720 310 L680 340 L620 360 L560 365 L490 365 L420 360 L350 365 L280 360 L220 340 L160 320 L110 290 L80 260 Z" fill="#ebe3d2"/>
+            <path d="M105 380 L125 365 L140 380 L130 405 L115 405 Z" fill="#ebe3d2"/>
+            <path d="M650 350 L680 345 L710 380 L690 420 L660 420 Z" fill="#ebe3d2"/>
+          </g>
+          <!-- Faint state grid -->
+          <g stroke="#d6cdb8" stroke-width="0.6" opacity="0.6">
+            <path d="M200 130 L210 350"/>
+            <path d="M310 120 L320 360"/>
+            <path d="M420 110 L425 360"/>
+            <path d="M520 110 L525 365"/>
+            <path d="M620 130 L625 360"/>
+          </g>
+          <!-- Dots (clubs) -->
+          <circle class="map-dot lg" cx="140" cy="220" r="9"><title>San Francisco · launch city</title></circle>
+          <circle class="map-dot" cx="170" cy="270" r="6"><title>Los Angeles area · launch city</title></circle>
+          <circle class="map-dot" cx="195" cy="305" r="5"><title>San Diego · launch city</title></circle>
+          <circle class="map-dot" cx="230" cy="180" r="5"><title>Portland · launch city</title></circle>
+          <circle class="map-dot" cx="220" cy="160" r="5"><title>Seattle · launch city</title></circle>
+          <circle class="map-dot" cx="280" cy="230" r="5"><title>Salt Lake City · launch city</title></circle>
+          <circle class="map-dot" cx="330" cy="280" r="6"><title>Phoenix · launch city</title></circle>
+          <circle class="map-dot" cx="345" cy="200" r="5"><title>Denver · launch city</title></circle>
+          <circle class="map-dot lg" cx="430" cy="310" r="8"><title>Dallas–Fort Worth · launch city</title></circle>
+          <circle class="map-dot" cx="445" cy="345" r="6"><title>Austin · launch city</title></circle>
+          <circle class="map-dot" cx="475" cy="345" r="5"><title>Houston · launch city</title></circle>
+          <circle class="map-dot" cx="430" cy="240" r="5"><title>Kansas City · launch city</title></circle>
+          <circle class="map-dot lg" cx="500" cy="200" r="8"><title>Chicago · launch city</title></circle>
+          <circle class="map-dot" cx="535" cy="230" r="6"><title>Indianapolis · launch city</title></circle>
+          <circle class="map-dot" cx="555" cy="265" r="5"><title>Nashville · launch city</title></circle>
+          <circle class="map-dot" cx="595" cy="300" r="6"><title>Atlanta · launch city</title></circle>
+          <circle class="map-dot" cx="625" cy="345" r="6"><title>Orlando · launch city</title></circle>
+          <circle class="map-dot" cx="620" cy="220" r="6"><title>Washington DC · launch city</title></circle>
+          <circle class="map-dot" cx="640" cy="195" r="5"><title>Philadelphia · launch city</title></circle>
+          <circle class="map-dot lg" cx="660" cy="175" r="9"><title>New York metro · launch city</title></circle>
+          <circle class="map-dot" cx="680" cy="160" r="5"><title>Boston · launch city</title></circle>
+        </svg>
+        <div class="map__legend">
+          <span><i></i> Launch city</span>
+          <span><i class="f"></i> Major metro</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FEATURED EVENT ====== -->
+  <section class="section section--tight" id="events">
+    <div class="wrap">
+      <div class="feature">
+        <div class="feature__art" aria-hidden="true">
+          <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+            <g opacity="0.18" stroke="#fffaf0" stroke-width="1.2" fill="none">
+              <circle cx="300" cy="300" r="60"/>
+              <circle cx="300" cy="300" r="120"/>
+              <circle cx="300" cy="300" r="200"/>
+              <circle cx="300" cy="300" r="280"/>
+            </g>
+            <circle cx="380" cy="220" r="34" fill="#ffffff" stroke="rgba(0,0,0,0.18)" stroke-width="1"/>
+            <circle cx="380" cy="220" r="34" fill="url(#ballShade)"/>
+            <defs>
+              <radialGradient id="ballShade" cx="0.3" cy="0.3" r="0.85">
+                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+                <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="feature__body">
+          <span class="eyebrow">Featured event · coming soon</span>
+          <h2>The first TTConnect Open.</h2>
+          <p>A friendly, recreational tournament series designed for players who love the game more than the bracket pressure. Singles and doubles, four levels, several cities. We'll announce the dates and venues as soon as they're locked.</p>
+          <div class="feature__meta">
+            <div><strong>TBD</strong><span>Dates</span></div>
+            <div><strong>Multiple</strong><span>Cities</span></div>
+            <div><strong>All levels</strong><span>Format</span></div>
+          </div>
+          <div class="feature__cta">
+            <a class="btn btn--accent" href="#join">Get on the waitlist <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SPOTLIGHT ====== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="spotlight">
+        <div class="spotlight__photo" aria-label="Photo placeholder for community spotlight"></div>
+        <div>
+          <span class="eyebrow">Why we're building this</span>
+          <p class="spotlight__quote" style="margin-top:24px;"><span class="mark">“</span>Table tennis in America is everywhere and nowhere at once. There's a basement table, a community center, a Tuesday night ladder — but finding them, when you move or pick the paddle back up, can be ridiculously hard. We're fixing that.<span class="mark">”</span></p>
+          <div class="spotlight__by">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--cream-2);border:1px solid var(--line); display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;color:var(--forest);">tt</div>
+            <div>
+              <strong>The TTConnect team</strong>
+              <div>Players, organizers, paddle-obsessed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== JOIN ====== -->
+  <section class="section section--tight" id="join">
+    <div class="wrap">
+      <div class="joinbox">
+        <div>
+          <span class="eyebrow">Free to join</span>
+          <h2 style="margin-top:14px;">Get connected in 30 seconds.</h2>
+          <p>Drop your email and ZIP — we'll send you the three closest clubs, any leagues with open spots, and the next open-play night in your area. That's it.</p>
+        </div>
+        <form class="joinbox__form" onsubmit="event.preventDefault(); this.querySelector('.field button').textContent='Sent ✓'; this.querySelector('.field button').disabled=true;">
+          <div class="field">
+            <input type="email" placeholder="you@example.com" required aria-label="Email" />
+            <input type="text" placeholder="ZIP" required aria-label="ZIP code" pattern="[0-9]{5}" maxlength="5" style="max-width:80px; padding-left:6px;" />
+            <button class="btn btn--primary" type="submit">Get connected</button>
+          </div>
+          <div class="role" role="radiogroup" aria-label="I play as">
+            <label><input type="radio" name="role" value="rec" checked><span>Recreational</span></label>
+            <label><input type="radio" name="role" value="league"><span>League player</span></label>
+            <label><input type="radio" name="role" value="organizer"><span>Club / organizer</span></label>
+          </div>
+          <div class="hint">No spam. One email when there's something near you worth knowing about · <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy</a></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="leagues.html">Leagues</a></li>
+          <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#map">Find a club</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Community</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#mission">Mission</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:ttconnectadmin@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a></li>
+          <li><a href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20club">List your club</a></li>
+          <li><a href="mailto:ttconnectadmin@gmail.com?subject=Press%20inquiry">Press</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · ttconnect.us</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

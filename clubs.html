@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clubs · Coming Soon · TTConnect</title>
+<meta name="description" content="The TTConnect club directory is on its way. Get an email when we go live in your area." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  /* Coming-soon scene */
+  .cs {
+    position: relative;
+    padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 110px);
+    overflow: hidden;
+  }
+  .cs__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+  }
+  @media (max-width: 900px) { .cs__inner { grid-template-columns: 1fr; } }
+
+  .cs h1 {
+    font-size: clamp(48px, 7.5vw, 96px);
+    letter-spacing: -0.035em;
+    margin-top: 18px;
+  }
+  .cs h1 .accent {
+    color: var(--forest);
+    font-style: italic;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+  }
+  .cs h1 .accent::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 6%;
+    height: 14px;
+    background: var(--orange);
+    opacity: 0.28;
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .cs__sub { margin-top: 22px; max-width: 50ch; }
+  .cs__form {
+    margin-top: 36px;
+    display: flex;
+    gap: 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-full);
+    padding: 6px 6px 6px 22px;
+    align-items: center;
+    max-width: 520px;
+    transition: border-color .15s ease;
+  }
+  .cs__form:focus-within { border-color: var(--forest); }
+  .cs__form input {
+    flex: 1; border: none; outline: none; background: transparent;
+    font: 500 16px/1 var(--body); color: var(--ink); padding: 14px 0; min-width: 0;
+  }
+  .cs__form input::placeholder { color: var(--ink-3); }
+  .cs__hint {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+
+  /* The big visual */
+  .cs-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--r-xl);
+    background: var(--forest);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(19, 59, 42, 0.5);
+  }
+  .cs-art__grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .cs-art__board {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    right: 32px;
+    background: rgba(10, 42, 29, 0.85);
+    border: 1px solid rgba(255, 250, 240, 0.12);
+    border-radius: var(--r-md);
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    color: rgba(255, 250, 240, 0.7);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cs-art__board .live {
+    display: inline-flex; align-items: center; gap: 8px; color: var(--orange);
+  }
+  .cs-art__board .live::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 0 4px rgba(204, 31, 58, 0.25);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .cs-art__paddle {
+    position: absolute;
+    width: 56%;
+    left: -8%;
+    top: 38%;
+    transform: rotate(28deg);
+    filter: drop-shadow(0 18px 30px rgba(0,0,0,0.4));
+  }
+  .cs-art__ball {
+    position: absolute;
+    width: 16%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #f2ede2 70%, #c8c0ac);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    top: 26%;
+    right: 22%;
+    animation: csBounce 2.6s ease-in-out infinite;
+  }
+  .cs-art__trail {
+    position: absolute;
+    top: 34%;
+    right: 12%;
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 138, 61, 0.5), transparent);
+    border-radius: 1px;
+    transform: rotate(-22deg);
+    transform-origin: right center;
+  }
+  .cs-art__big {
+    position: absolute;
+    bottom: 26px;
+    left: 32px;
+    right: 32px;
+    color: var(--paper);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 5.5vw, 60px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .cs-art__big small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 250, 240, 0.55);
+    margin-bottom: 12px;
+  }
+  .cs-art__big .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+
+  @keyframes csBounce {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-30%, 30%); }
+    50%  { transform: translate(-60%, 10%); }
+    75%  { transform: translate(-30%, 30%); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Roadmap cards */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 880px) { .roadmap { grid-template-columns: 1fr; } }
+  .rm {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .rm__when {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rm__when::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cream-3);
+  }
+  .rm.is-now { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .rm.is-now .rm__when { color: rgba(255,250,240,0.65); }
+  .rm.is-now .rm__when::before { background: var(--orange); box-shadow: 0 0 0 4px rgba(204, 31, 58, 0.25); }
+  .rm.is-now h3, .rm.is-now p { color: var(--paper); }
+  .rm.is-now p { color: rgba(255,250,240,0.78); }
+  .rm h3 { font-size: 22px; }
+  .rm p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home"><span class="logo__ball" aria-hidden="true"></span><span><b>TT</b><span>Connect</span></span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html">Leagues</a>
+      <a href="clubs.html" class="is-current">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="#signin">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="index.html#join">Join free</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====== COMING SOON HERO ====== -->
+  <section class="cs">
+    <div class="cs__inner">
+      <div>
+        <span class="eyebrow">Clubs directory · coming soon</span>
+        <h1>We're <span class="accent">setting up the tables</span>.</h1>
+        <p class="lead cs__sub">The TTConnect club directory is rallying into shape. We're verifying hours, fees, and friendly faces at clubs across the United States — and we'll let you know the moment yours is live.</p>
+
+        <form class="cs__form" onsubmit="event.preventDefault(); var f=this; f.querySelector('button').textContent='You\u2019re on the list ✓'; f.querySelector('button').disabled=true; f.querySelectorAll('input').forEach(function(i){i.disabled=true;});">
+          <input type="email" placeholder="you@example.com" required aria-label="Email" />
+          <input type="text" placeholder="ZIP" required aria-label="ZIP code" pattern="[0-9]{5}" maxlength="5" style="max-width:80px; padding-left:6px;" />
+          <button class="btn btn--primary" type="submit">Notify me</button>
+        </form>
+        <div class="cs__hint">No spam — one email when clubs go live near you · <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy</a></div>
+      </div>
+
+      <div class="cs-art" aria-hidden="true">
+        <div class="cs-art__grid"></div>
+
+        <div class="cs-art__board">
+          <span class="live">Match #001 · warming up</span>
+          <span>0 — 0</span>
+        </div>
+
+        <svg class="cs-art__paddle" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="90" rx="86" ry="88" fill="#cc1f3a"/>
+          <ellipse cx="100" cy="90" rx="86" ry="88" fill="url(#csPaddleSheen)"/>
+          <ellipse cx="100" cy="90" rx="70" ry="72" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
+          <rect x="90" y="160" width="20" height="74" rx="6" fill="#3a2a1a"/>
+          <rect x="86" y="174" width="28" height="48" rx="4" fill="#2a1f12"/>
+          <defs>
+            <linearGradient id="csPaddleSheen" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+              <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="cs-art__trail"></div>
+        <div class="cs-art__ball"></div>
+
+        <div class="cs-art__big">
+          <small>Status · summer 2026</small>
+          Coming<br/><span class="accent">soon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ROADMAP ====== -->
+  <section class="section section--tight" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">What's happening</span>
+          <h2 style="margin-top:18px;">Three steps to a real directory.</h2>
+        </div>
+        <p>We're not stitching together a half-empty list — we're verifying every club ourselves with a real player who plays there.</p>
+      </div>
+
+      <div class="roadmap">
+        <article class="rm is-now">
+          <span class="rm__when">In progress · now</span>
+          <h3>Verifying the first 100 clubs.</h3>
+          <p>Hours, fees, tables, who runs it, who shows up — every listing checked by an actual member. No screen-scraped junk.</p>
+        </article>
+        <article class="rm">
+          <span class="rm__when">Next · summer</span>
+          <h3>Search, map, and filters.</h3>
+          <p>Find clubs by ZIP, by open-tonight hours, by beginner friendliness, by table count, by whether they have a pro shop.</p>
+        </article>
+        <article class="rm">
+          <span class="rm__when">After · fall</span>
+          <h3>Member-written reviews.</h3>
+          <p>Real reviews from real regulars. We'll never let a club edit them, and we'll never let anonymous reviews in.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ORGANIZER CTA ====== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="joinbox" style="grid-template-columns: 1fr;">
+        <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; justify-content:space-between;">
+          <div style="max-width:48ch;">
+            <span class="eyebrow">For club owners</span>
+            <h2 style="margin-top:14px;">Run a club? Get on the launch list.</h2>
+            <p style="margin-top:14px;">If you operate a club, league night, or open-play session, email us with the details and we'll make sure your spot is on the map the day we go live.</p>
+          </div>
+          <a class="btn btn--primary btn--lg" href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20club%20on%20TTConnect">Add your club <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="mailto:ttconnectadmin@gmail.com">Contact</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20club">List your club</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=Press%20inquiry">Press</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · ttconnect.us</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
