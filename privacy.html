@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy · TTConnect</title>
-<meta name="description" content="How TTConnect collects, uses, and protects the information you give us. Short, plain English, no surprises." />
+<meta name="description" content="How TTConnect collects, uses, and protects personal information. Version 1.2, effective May 28, 2026." />
 <meta name="theme-color" content="#1a1411" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,21 +13,28 @@
 <link rel="stylesheet" href="assets/styles.css" />
 <style>
   .legal {
-    max-width: 760px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
   .legal h2 {
     font-size: clamp(24px, 3vw, 32px);
-    margin-top: 56px;
+    margin-top: 64px;
+    scroll-margin-top: 90px;
   }
-  .legal h2:first-child { margin-top: 0; }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal h3 {
+    font-size: clamp(18px, 2vw, 21px);
+    margin-top: 32px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
   .legal p, .legal li {
     color: var(--ink-2);
     font-size: 17px;
     line-height: 1.65;
   }
-  .legal p + p, .legal p + ul, .legal ul + p { margin-top: 14px; }
+  .legal p + p, .legal p + ul, .legal ul + p, .legal p + .legal-table, .legal-table + p { margin-top: 14px; }
   .legal ul {
     margin: 14px 0 0;
     padding-left: 20px;
@@ -48,12 +55,115 @@
     letter-spacing: 0.08em;
     color: var(--ink-3);
     text-transform: uppercase;
-    margin-top: 24px;
+    margin-top: 28px;
     padding-top: 18px;
     border-top: 1px solid var(--line);
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
+  }
+
+  /* Table of contents */
+  .toc {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-md, 12px);
+  }
+  .toc__label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 32px;
+  }
+  .toc li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    break-inside: avoid;
+  }
+  .toc li a {
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .toc li a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+  }
+  .toc li span.n {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-right: 8px;
+  }
+  @media (max-width: 640px) { .toc ol { columns: 1; } }
+
+  /* Tables */
+  .legal-table {
+    margin-top: 18px;
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .legal-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .legal-table th {
+    text-align: left;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .legal-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink-2);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .legal-table tr:last-child td { border-bottom: none; }
+  .legal-table td:first-child {
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .legal-table td:first-child { white-space: normal; }
+    .legal-table th, .legal-table td { padding: 10px 12px; font-size: 14px; }
+  }
+
+  .legal-section {
+    margin-top: 18px;
+  }
+  .legal-end {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    text-transform: uppercase;
   }
 </style>
 </head>
@@ -82,66 +192,215 @@
     <div class="wrap">
       <span class="eyebrow">Legal · privacy</span>
       <h1>Privacy policy.</h1>
-      <p class="lead">Short, plain English. We collect as little as we can, we don't sell or rent your data, and we tell you when something changes.</p>
+      <p class="lead">How Yashwant Technologies Inc. collects, uses, shares, and protects personal information when you use the TTConnect Platform.</p>
+      <div class="legal__meta" style="margin-top:28px; border-top:none; padding-top:0;">
+        <span>Version 1.2</span>
+        <span>Effective May 28, 2026</span>
+        <span>Last updated May 28, 2026</span>
+      </div>
     </div>
   </section>
 
   <section class="section section--tight" style="padding-top:0;">
     <div class="legal">
 
-      <h2>What we collect</h2>
-      <p>When you sign up for the TTConnect waitlist or newsletter, we collect:</p>
+      <h2 id="operator-and-scope">Operator and Scope</h2>
+      <p>TTConnect (the &ldquo;Service&rdquo;) is operated by <strong>Yashwant Technologies Inc.</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), a corporation organized under the laws of the United States.</p>
+      <p>This Privacy Policy applies to your access to and use of the TTConnect Service, which includes:</p>
       <ul>
-        <li><strong>Your email address</strong> — so we can email you when clubs, leagues, and events go live in your area.</li>
-        <li><strong>Your ZIP code</strong> — so the email is actually useful (we send you nearby clubs, not random ones).</li>
-        <li><strong>Your role</strong> (recreational player, league player, organizer) — to tailor what we send.</li>
+        <li><strong>ttconnect.us</strong> — the public marketing website</li>
+        <li><strong>app.ttconnect.us</strong> — the TTConnect web application</li>
+        <li>The TTConnect iOS mobile application (available via the Apple App Store)</li>
+        <li>The TTConnect Android mobile application (available via the Google Play Store)</li>
       </ul>
-      <p>If you email us at <a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a>, we also see whatever you put in the message — your name, your club, the question you asked.</p>
+      <p>Collectively, these are referred to in this Policy as the &ldquo;Service&rdquo; or the &ldquo;TTConnect Platform&rdquo;. This Policy describes how we collect, use, share, and protect personal information when you use the Service.</p>
 
-      <h2>What we don't collect</h2>
+      <div class="toc" aria-label="Table of contents">
+        <div class="toc__label">Table of contents</div>
+        <ol>
+          <li><a href="#s1"><span class="n">01</span>Who We Are</a></li>
+          <li><a href="#s2"><span class="n">02</span>Scope of This Policy</a></li>
+          <li><a href="#s3"><span class="n">03</span>Information We Collect</a></li>
+          <li><a href="#s4"><span class="n">04</span>How We Use Your Information</a></li>
+          <li><a href="#s5"><span class="n">05</span>How We Share Your Information</a></li>
+          <li><a href="#s6"><span class="n">06</span>Third-Party Services and Integrations</a></li>
+          <li><a href="#s7"><span class="n">07</span>Data Retention</a></li>
+          <li><a href="#s8"><span class="n">08</span>Data Security</a></li>
+          <li><a href="#s9"><span class="n">09</span>Your Rights and Choices</a></li>
+          <li><a href="#s10"><span class="n">10</span>Children&rsquo;s Privacy</a></li>
+          <li><a href="#s11"><span class="n">11</span>Changes to This Policy</a></li>
+          <li><a href="#s12"><span class="n">12</span>Contact Us</a></li>
+        </ol>
+      </div>
+
+      <h2 id="s1">1. Who We Are</h2>
+      <p>TTConnect is a league management platform for table tennis clubs, league directors, and players. The Service is owned and operated by Yashwant Technologies Inc., a United States corporation.</p>
+      <p>TTConnect provides tools for clubs to organize and operate table tennis leagues — including player registration, division management, match scoring, USATT-compliant rating calculation, and league reporting — and provides players with a mobile and web experience to view their leagues, enter scores, and track their ratings.</p>
+
+      <h2 id="s2">2. Scope of This Policy</h2>
+      <p>This Privacy Policy applies to all personal information processed in connection with your access to and use of:</p>
       <ul>
-        <li>We do not collect your real name, phone number, address, or date of birth.</li>
-        <li>We do not run third-party analytics or advertising trackers on this site.</li>
-        <li>We do not set cookies for tracking. The only thing the site stores locally is a small marker if you've already submitted a form.</li>
-        <li>We do not record your IP address beyond standard server logs (kept 30 days, then deleted).</li>
+        <li>The <strong>ttconnect.us</strong> website (our public marketing and information site);</li>
+        <li>The <strong>app.ttconnect.us</strong> web application (where league directors and players access TTConnect from a desktop or laptop browser);</li>
+        <li>The TTConnect mobile application for iOS, available on the Apple App Store; and</li>
+        <li>The TTConnect mobile application for Android, available on the Google Play Store.</li>
       </ul>
+      <p>This Policy does not apply to third-party websites, services, or applications that may be linked to from the Service, even if those services are integrated with TTConnect. Third-party services are governed by their own privacy policies, and we encourage you to review them. A list of the third-party services we currently integrate with is provided in <a href="#s6">Section 6</a>.</p>
 
-      <h2>What we do with it</h2>
+      <h2 id="s3">3. Information We Collect</h2>
+      <p>We collect information in three ways: information you (or your league administrator) provide to us; information we collect automatically when you use the Service; and information we receive from third parties (such as USATT, via the JustGo platform).</p>
+
+      <h3>3.1 Information You or Your League Administrator Provides</h3>
+      <p>Accounts on TTConnect are created by administrators or league directors on behalf of players. You may also update some of your own profile information after first login. The categories of information collected include:</p>
       <ul>
-        <li>Send you the email(s) you signed up for — clubs near you, leagues opening, the occasional product update. Usually one email a month or less.</li>
-        <li>Improve the directory based on which ZIP codes are asking — e.g. if 200 people from Tampa sign up, Tampa moves up the priority list.</li>
-        <li>That's it. We do not sell, rent, trade, or share your email or ZIP with anyone — not clubs, not leagues, not advertisers, not "trusted partners."</li>
+        <li><strong>Identity information:</strong> First name, last name, country of residence.</li>
+        <li><strong>Contact information:</strong> Email address. A phone number may be collected by some league directors but is not required by the Service.</li>
+        <li><strong>USATT membership information:</strong> USATT membership number (where the player has one). Where you do not have a USATT membership number, the Service generates a placeholder internal identifier for use within your league.</li>
+        <li><strong>League and match information:</strong> League name and metadata, division assignments, opponents played, match results (game-level wins and losses), defaults, and rating history within TTConnect.</li>
+        <li><strong>Authentication credentials:</strong> A password you set for your account. Passwords are not stored by us in readable form; they are managed by Amazon Cognito (see <a href="#s6">Section 6</a>).</li>
+        <li><strong>Optional biometric setting:</strong> If you enable biometric sign-in (Face ID, Touch ID, or fingerprint) on your device, the biometric data itself never leaves your device. We only store a setting indicating that biometric sign-in is enabled.</li>
+        <li><strong>Feedback and support submissions:</strong> If you submit feedback or contact support, we collect the content of your message and any optional screenshot or attachment you choose to include.</li>
       </ul>
 
-      <h2>How long we keep it</h2>
-      <p>Your email and ZIP stay in our list until you ask us to remove them. You can ask anytime — see "Your rights" below.</p>
-
-      <h2>Who can see it</h2>
-      <p>Right now, the TTConnect team (a small handful of humans). Your data is stored with the email and form services we use to run the site — currently Google (for our admin inbox). We pick services with strong privacy track records and never use ones that re-sell personal data.</p>
-
-      <h2>Your rights</h2>
-      <p>At any time, you can email <a href="mailto:ttconnectadmin@gmail.com?subject=Privacy%20request">ttconnectadmin@gmail.com</a> and ask us to:</p>
+      <h3>3.2 Information Collected Automatically</h3>
+      <p>When you use the Service, we automatically collect technical information needed to provide and secure it:</p>
       <ul>
-        <li><strong>Show you</strong> what we have on file about you.</li>
-        <li><strong>Update</strong> your email or ZIP.</li>
-        <li><strong>Delete</strong> your record entirely.</li>
-        <li><strong>Stop emailing you</strong> (every email also has an unsubscribe link).</li>
+        <li><strong>Device and app information:</strong> Device type, operating system and version, app version, language, and time zone.</li>
+        <li><strong>Log and usage information:</strong> IP address, access timestamps, pages or screens viewed, actions taken (such as match scores entered), and error or crash data.</li>
+        <li><strong>Push notification token:</strong> If you enable push notifications, a unique device token issued by Apple (APNs) or Google (FCM) to allow us to deliver notifications to your device.</li>
       </ul>
-      <p>We'll do it within 7 days. No forms, no friction, no "are you sure?" guilt prompts.</p>
 
-      <h2>Children</h2>
-      <p>TTConnect is intended for adults. We don't knowingly collect information from anyone under 13. If you believe a child has signed up, email us and we'll delete the record.</p>
+      <h3>3.3 Information from Third Parties</h3>
+      <p>Where you have a USATT membership number and look it up through the Service, we retrieve information about you from USATT via the JustGo platform. This information may include your name, country, USATT membership status (active, expired, or suspended), and your current USATT rating. See <a href="#s6">Section 6</a> for further details on this integration.</p>
 
-      <h2>Changes to this policy</h2>
-      <p>If we change anything material here, we'll email everyone on the list before the change takes effect. The version date below is always current.</p>
+      <h3>3.4 Categories of Personal Information Collected</h3>
+      <p>The table below summarizes the categories of personal information we collect:</p>
+      <div class="legal-table">
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Examples</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Identifiers</td><td>Name, email, USATT member number</td><td>You / your league administrator</td></tr>
+            <tr><td>Contact information</td><td>Email, optional phone number</td><td>You / your league administrator</td></tr>
+            <tr><td>Internet activity</td><td>App and website usage, IP address, device info</td><td>Collected automatically</td></tr>
+            <tr><td>Profile and inferences</td><td>League standings, ratings, match results</td><td>Generated by the Service from your activity</td></tr>
+            <tr><td>Third-party data</td><td>USATT membership status, USATT rating</td><td>JustGo (USATT) via API integration</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Contact</h2>
-      <p>Questions, requests, anything at all: <a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a>.</p>
+      <h2 id="s4">4. How We Use Your Information</h2>
+      <p>We use the information we collect for the following purposes:</p>
+      <ul>
+        <li><strong>To provide the Service:</strong> Create and authenticate your account, run leagues, calculate ratings (including via the three-pass USATT algorithm), display standings, and deliver league results and exports.</li>
+        <li><strong>To verify USATT membership:</strong> Look up your USATT membership status and rating, where applicable, via the JustGo integration.</li>
+        <li><strong>To communicate with you:</strong> Send transactional emails (password resets, account-related notifications) and push notifications about league events you have not opted out of.</li>
+        <li><strong>To secure the Service:</strong> Detect and prevent fraud, abuse, and unauthorized access; investigate and respond to security incidents.</li>
+        <li><strong>To improve the Service:</strong> Analyze how the Service is used (in aggregate), diagnose bugs, and develop new features.</li>
+        <li><strong>To comply with law:</strong> Meet our legal, regulatory, and accounting obligations.</li>
+      </ul>
+      <p><strong>We do not sell your personal information.</strong> We do not use your information for advertising, and we do not allow third-party advertisers to track you through the Service.</p>
+
+      <h2 id="s5">5. How We Share Your Information</h2>
+      <p>We share personal information only in the following limited circumstances:</p>
+
+      <h3>5.1 With Other Users of Your League</h3>
+      <p>If you are a player in a league, your name, USATT membership number (if any), country, match results, and ratings will be visible to the administrator and other authorized users of that league (such as the league director and the other players in your division), as is necessary for the operation of league play and standings.</p>
+
+      <h3>5.2 With Service Providers</h3>
+      <p>We share information with third-party service providers that process data on our behalf to operate the Service. These providers are bound by contractual obligations to protect your information and may only use it to provide services to us. See <a href="#s6">Section 6</a> for the current list.</p>
+
+      <h3>5.3 With USATT (via JustGo)</h3>
+      <p>When you or your league administrator perform a USATT lookup or refresh for your account, your USATT membership number is sent to JustGo to retrieve membership status and rating data.</p>
+
+      <h3>5.4 For Legal Reasons</h3>
+      <p>We may disclose personal information if required to do so by law, valid legal process, or to protect the rights, property, or safety of Yashwant Technologies Inc., our users, or the public.</p>
+
+      <h3>5.5 In Connection with a Business Transfer</h3>
+      <p>If we are involved in a merger, acquisition, financing, or sale of assets, personal information may be transferred as part of that transaction. We will provide notice on the Service before personal information is transferred and becomes subject to a different privacy policy.</p>
+
+      <h2 id="s6">6. Third-Party Services and Integrations</h2>
+      <p>We use the following third-party services to operate the Service. Each of these providers has its own privacy practices, which we encourage you to review.</p>
+      <div class="legal-table">
+        <table>
+          <thead>
+            <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Amazon Web Services (AWS)</td><td>Cloud hosting, database, file storage</td><td>All data processed by the Service</td></tr>
+            <tr><td>Amazon Cognito</td><td>User authentication and password management</td><td>Email, password hash, sign-in events</td></tr>
+            <tr><td>Amazon Simple Email Service (SES)</td><td>Transactional email delivery</td><td>Email address, message content</td></tr>
+            <tr><td>Expo Push (APNs / FCM)</td><td>Mobile push notification delivery</td><td>Push token, notification content</td></tr>
+            <tr><td>Google Maps Platform</td><td>Location and address lookup (where used by directors for club setup)</td><td>Address strings entered by directors</td></tr>
+            <tr><td>USATT / JustGo</td><td>USATT membership lookup and rating retrieval</td><td>USATT member number</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We may add or change third-party providers as the Service evolves. We will update this Policy when we make such changes.</p>
+
+      <h2 id="s7">7. Data Retention</h2>
+      <p>We retain personal information for as long as needed to provide the Service and meet the purposes described in this Policy, unless a longer retention period is required by law. Specifically:</p>
+      <ul>
+        <li><strong>Account information</strong> is retained while your account is active and for a reasonable period afterwards to allow for reactivation, dispute resolution, and legal compliance.</li>
+        <li><strong>League and match records</strong> (including ratings) are retained indefinitely as part of the historical record of league play, unless you request deletion as described in <a href="#s9">Section 9</a>.</li>
+        <li><strong>USATT data retrieved from JustGo</strong> is cached only as long as needed to display current status and rating; we re-fetch this data on demand rather than store it long-term.</li>
+        <li><strong>Logs and technical records</strong> are retained for a limited period (typically up to 12 months) for security and diagnostic purposes.</li>
+        <li><strong>Feedback and support submissions</strong> are retained for as long as needed to investigate and respond, and to improve the Service.</li>
+      </ul>
+
+      <h2 id="s8">8. Data Security</h2>
+      <p>We take reasonable and appropriate measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
+      <ul>
+        <li><strong>Encryption in transit (TLS)</strong> for all data exchanged between your device and our servers, and between our servers and our third-party providers.</li>
+        <li><strong>Encryption at rest</strong> for data stored in Amazon RDS and Amazon S3.</li>
+        <li>Use of <strong>Amazon Cognito</strong> for password management; passwords are never stored or transmitted in readable form.</li>
+        <li><strong>Optional biometric sign-in</strong> support on mobile devices, where biometric data is processed entirely on your device and is never transmitted to or stored by us.</li>
+        <li><strong>Multi-factor authentication</strong> for administrative accounts.</li>
+        <li><strong>Restricted internal access</strong> to production data, with logging and review.</li>
+      </ul>
+      <p>No method of transmission over the internet or method of electronic storage is 100% secure. While we work to protect your information, we cannot guarantee its absolute security.</p>
+
+      <h2 id="s9">9. Your Rights and Choices</h2>
+      <p>Depending on where you live, you may have certain rights regarding your personal information under applicable law (including, in the United States, the California Consumer Privacy Act and other state privacy laws). These rights may include:</p>
+      <ul>
+        <li><strong>Access:</strong> You may request access to the personal information we hold about you.</li>
+        <li><strong>Correction:</strong> You may request that we correct inaccurate or incomplete information.</li>
+        <li><strong>Deletion:</strong> You may request that we delete your personal information, subject to certain exceptions (for example, where we are required to retain information by law, or where deletion would affect the integrity of historical league records of other players).</li>
+        <li><strong>Portability:</strong> You may request a copy of the personal information you provided to us in a portable format.</li>
+        <li><strong>Opt-out of certain processing:</strong> You may opt out of receiving non-essential communications (such as push notifications) at any time from within the Service&rsquo;s settings.</li>
+      </ul>
+      <p>We do not sell your personal information. We do not use it for cross-context behavioral advertising.</p>
+      <p>To exercise any of these rights, please contact us using the details in <a href="#s12">Section 12</a>. We will respond to your request within the time required by applicable law and may need to verify your identity before fulfilling your request.</p>
+
+      <h2 id="s10">10. Children&rsquo;s Privacy</h2>
+      <p>The Service is intended for users aged 13 and over. We do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13 without verifiable parental consent, we will delete that information promptly.</p>
+      <p>If you are a parent or guardian and you believe your child under 13 has provided personal information to us, please contact us using the details in <a href="#s12">Section 12</a> and we will take appropriate action.</p>
+
+      <h2 id="s11">11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, the Service, or applicable law. When we make material changes, we will update the &ldquo;Last Updated&rdquo; date at the top of this Policy and, where appropriate, provide additional notice (for example, by posting a prominent notice within the Service or sending an email to the address associated with your account).</p>
+      <p>Your continued use of the Service after the effective date of an updated Policy constitutes your acceptance of the updated terms.</p>
+
+      <h2 id="s12">12. Contact Us</h2>
+      <p>If you have questions, concerns, or requests regarding this Privacy Policy or our handling of your personal information, please contact us:</p>
+      <div class="legal-table">
+        <table>
+          <tbody>
+            <tr><td>Company</td><td>Yashwant Technologies Inc.</td></tr>
+            <tr><td>Service</td><td>TTConnect</td></tr>
+            <tr><td>Email</td><td><a href="/cdn-cgi/l/email-protection#cabebea9a5a4a4afa9beabaea7a3a48aada7aba3a6e4a9a5a7"><span class="__cf_email__" data-cfemail="7b0f0f181415151e180f1a1f1612153b1c161a121755181416">[email&#160;protected]</span></a></td></tr>
+            <tr><td>Website</td><td><a href="https://ttconnect.us">https://ttconnect.us</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We will respond to your inquiry as soon as reasonably practicable.</p>
+
+      <div class="legal-end">— End of Privacy Policy —</div>
 
       <div class="legal__meta">
-        <span>Version 1.0</span>
-        <span>Effective May 24, 2026</span>
-        <span>TTConnect · ttconnect.us</span>
+        <span>Version 1.2</span>
+        <span>Effective May 28, 2026</span>
+        <span>© 2026 Yashwant Technologies Inc.</span>
       </div>
 
     </div>
@@ -157,16 +416,16 @@
         <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
       </div>
       <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
-      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="mailto:ttconnectadmin@gmail.com">Contact</a></li></ul></div>
-      <div><h5>Get in touch</h5><ul><li><a href="mailto:ttconnectadmin@gmail.com">ttconnectadmin@gmail.com</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=List%20my%20club">List your club</a></li><li><a href="mailto:ttconnectadmin@gmail.com?subject=Press%20inquiry">Press</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="/cdn-cgi/l/email-protection#98ececfbf7f6f6fdfbecf9fcf5f1f6d8fff5f9f1f4b6fbf7f5">Contact</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="/cdn-cgi/l/email-protection#295d5d4a4647474c4a5d484d444047694e44484045074a4644"><span class="__cf_email__" data-cfemail="2c58584f434242494f584d484145426c4b414d4540024f4341">[email&#160;protected]</span></a></li><li><a href="/cdn-cgi/l/email-protection#136767707c7d7d76706772777e7a7d53747e727a7f3d707c7e2c606671797670672e5f7a60673621237e6a362123707f6671">List your club</a></li><li><a href="/cdn-cgi/l/email-protection#057171666a6b6b6066716461686c6b456268646c692b666a683a7670676f6066713855776076762037356c6b74706c777c">Press</a></li></ul></div>
     </div>
     <div class="site-footer__bottom">
-      <div>© 2026 TTConnect · ttconnect.us</div>
+      <div>© 2026 TTConnect · Yashwant Technologies Inc.</div>
       <div>Made for the love of the game</div>
     </div>
   </div>
 </footer>
 
-<script src="assets/main.js" defer></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/main.js" defer></script>
 </body>
 </html>
