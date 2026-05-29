@@ -90,7 +90,7 @@ ErrorDocument 404 /404.html
 - **Navigation** — header, footer, all pages link to each other.
 - **Filter chips** — visually active state (UI demo; doesn't filter real data yet).
 - **Newsletter form** — pretends to submit (shows "Sent ✓"). Wire to your email provider before launch.
-- **Contact links** — all `mailto:` links route to `ttconnectadmin@gmail.com` with pre-filled subject lines for routing (e.g. "List my club", "Press inquiry").
+- **Contact links** — all `mailto:` links route to `support@ttconnect.us` with pre-filled subject lines for routing (e.g. "List my club", "Press inquiry").
 
 ## What's mocked & needs real data later
 
