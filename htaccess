@@ -1,0 +1,19 @@
+# TTConnect — clean URL rewrites
+# GoDaddy / Apache. Lets /privacy and /terms serve privacy.html and terms.html,
+# while /privacy.html and /terms.html keep working as-is.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # If an extensionless request has no matching file/dir but a .html version
+  # exists, serve the .html internally (URL stays clean in the browser).
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# Fallback for servers without mod_rewrite: enable content negotiation
+# so /privacy maps to privacy.html automatically.
+<IfModule mod_negotiation.c>
+  Options +MultiViews
+</IfModule>
