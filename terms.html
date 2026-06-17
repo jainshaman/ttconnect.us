@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service · TTConnect</title>
+<meta name="description" content="The terms that govern your use of TTConnect, operated by Yashwant Technologies Inc. Version 1.2, effective June 17, 2026." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="canonical" href="https://ttconnect.us/terms" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  .legal { max-width: 820px; margin: 0 auto; padding: 0 var(--gutter); }
+  .legal h2 { font-size: clamp(24px, 3vw, 32px); margin-top: 64px; scroll-margin-top: 90px; }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal h3 { font-size: clamp(18px, 2vw, 21px); margin-top: 32px; font-weight: 600; letter-spacing: -0.005em; scroll-margin-top: 90px; }
+  .legal p, .legal li { color: var(--ink-2); font-size: 17px; line-height: 1.65; }
+  .legal p + p, .legal p + ul, .legal ul + p, .legal p + .legal-table, .legal-table + p, .legal h3 + .legal-table { margin-top: 14px; }
+  .legal ul { margin: 14px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+  .legal__meta {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ink-3);
+    text-transform: uppercase; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line);
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+
+  /* Dark callout — used for the "Important, please read" intro */
+  .legal-notice {
+    margin-top: 28px; padding: 22px 26px; background: var(--forest); color: rgba(255, 250, 240, 0.82);
+    border-radius: var(--r-md); font-size: 15.5px; line-height: 1.62;
+  }
+  .legal-notice strong { color: var(--paper); }
+  .legal-notice a { color: var(--paper); text-decoration-color: var(--orange); }
+  .legal-notice .label {
+    display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255, 250, 240, 0.55); margin-bottom: 12px;
+  }
+  .legal-notice p + p { margin-top: 12px; }
+
+  /* Emphasis block — all-caps legal disclaimers / liability caps */
+  .legal-emph {
+    margin-top: 18px; padding: 18px 22px; background: var(--paper);
+    border: 1px solid var(--line); border-left: 4px solid var(--orange);
+    border-radius: var(--r-sm); color: var(--ink);
+    font-size: 14.5px; line-height: 1.6; letter-spacing: 0.005em;
+  }
+  .legal-emph p + p { margin-top: 12px; }
+  .legal-emph strong { font-weight: 600; }
+
+  /* Table of contents */
+  .toc { margin-top: 32px; padding: 22px 24px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: var(--r-md); }
+  .toc__label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 12px; }
+  .toc ol { margin: 0; padding-left: 0; list-style: none; columns: 2; column-gap: 32px; }
+  .toc li { font-size: 15px; line-height: 1.7; color: var(--ink-2); break-inside: avoid; }
+  .toc li a { color: var(--ink-2); text-decoration: none; }
+  .toc li a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); }
+  .toc li span.n { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-right: 8px; }
+  @media (max-width: 640px) { .toc ol { columns: 1; } }
+
+  /* Tables */
+  .legal-table { margin-top: 18px; border: 1px solid var(--line-soft); border-radius: 10px; overflow: hidden; }
+  .legal-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .legal-table th {
+    text-align: left; background: var(--paper); color: var(--ink); font-family: var(--mono);
+    font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 12px 16px; border-bottom: 1px solid var(--line);
+  }
+  .legal-table td { padding: 14px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2); vertical-align: top; line-height: 1.55; }
+  .legal-table tr:last-child td { border-bottom: none; }
+  .legal-table td:first-child { font-weight: 500; color: var(--ink); }
+  @media (max-width: 640px) { .legal-table th, .legal-table td { padding: 10px 12px; font-size: 14px; } }
+
+  .legal-end {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line-soft); text-align: center;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase;
+  }
+  .legal-fine { margin-top: 18px; font-size: 14px; color: var(--ink-3); line-height: 1.6; }
+
+  /* Cross-link to the companion legal document */
+  .legal-xref {
+    margin-top: 28px; display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+    background: var(--paper); border: 1px solid var(--line-soft); border-radius: var(--r-md);
+    font-size: 15px; color: var(--ink-2); flex-wrap: wrap;
+  }
+  .legal-xref .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+  .legal-xref a { margin-left: auto; color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home"><span class="logo__ball" aria-hidden="true"></span><span><b>TT</b><span>Connect</span></span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html">Leagues</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="https://app.ttconnect.us" target="_blank" rel="noopener">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="index.html#join">Join free</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Legal · terms</span>
+      <h1>Terms of service.</h1>
+      <p class="lead">The terms that govern your access to and use of TTConnect, a league management platform operated by Yashwant Technologies Inc.</p>
+      <div class="legal__meta" style="margin-top:28px; border-top:none; padding-top:0;">
+        <span>Version 1.2</span>
+        <span>Effective June 17, 2026</span>
+        <span>Last updated June 17, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0;">
+    <div class="legal">
+
+      <div class="legal-notice">
+        <span class="label">Important — please read</span>
+        <p>These Terms of Service (the &ldquo;<strong>Terms</strong>&rdquo;) govern your access to and use of <strong>TTConnect</strong>, a league management platform for table tennis clubs, operated by <strong>Yashwant Technologies Inc.</strong>, a New Jersey corporation (&ldquo;<strong>Company</strong>&rdquo;, &ldquo;<strong>we</strong>&rdquo;, &ldquo;<strong>us</strong>&rdquo;, or &ldquo;<strong>our</strong>&rdquo;).</p>
+        <p>By accessing or using TTConnect, you agree to be bound by these Terms. If you are accessing TTConnect on behalf of a table tennis club, league, or other organization (a &ldquo;<strong>Club</strong>&rdquo;), you represent that you have authority to bind that Club to these Terms, and &ldquo;<strong>you</strong>&rdquo; in these Terms refers to both you individually and the Club. If you do not agree to these Terms, do not use the Service.</p>
+        <p><strong>These Terms include a binding arbitration clause, class action waiver, and mass arbitration waiver in Section 14 that affect your legal rights. Please read them carefully.</strong></p>
+      </div>
+
+      <div class="legal-xref">
+        <span class="mono">Related document</span>
+        <span>Our handling of personal information is described in the Privacy Policy, incorporated into these Terms by reference.</span>
+        <a href="privacy.html">Read the Privacy Policy →</a>
+      </div>
+
+      <div class="toc" aria-label="Table of contents">
+        <div class="toc__label">Table of contents</div>
+        <ol>
+          <li><a href="#s1"><span class="n">01</span>Definitions</a></li>
+          <li><a href="#s2"><span class="n">02</span>Eligibility &amp; Account Registration</a></li>
+          <li><a href="#s3"><span class="n">03</span>The Service During Beta</a></li>
+          <li><a href="#s4"><span class="n">04</span>Your Responsibilities</a></li>
+          <li><a href="#s5"><span class="n">05</span>Director &amp; Administrator Responsibilities</a></li>
+          <li><a href="#s6"><span class="n">06</span>Payments &amp; Payment Processing</a></li>
+          <li><a href="#s7"><span class="n">07</span>Acceptable Use</a></li>
+          <li><a href="#s8"><span class="n">08</span>Intellectual Property</a></li>
+          <li><a href="#s9"><span class="n">09</span>Privacy &amp; Data Protection</a></li>
+          <li><a href="#s10"><span class="n">10</span>Third-Party Services</a></li>
+          <li><a href="#s11"><span class="n">11</span>Disclaimers &amp; Warranties</a></li>
+          <li><a href="#s12"><span class="n">12</span>Limitation of Liability</a></li>
+          <li><a href="#s13"><span class="n">13</span>Indemnification</a></li>
+          <li><a href="#s14"><span class="n">14</span>Dispute Resolution; Arbitration</a></li>
+          <li><a href="#s15"><span class="n">15</span>Termination</a></li>
+          <li><a href="#s16"><span class="n">16</span>Service Continuity &amp; Data Export</a></li>
+          <li><a href="#s17"><span class="n">17</span>Changes to These Terms</a></li>
+          <li><a href="#s18"><span class="n">18</span>General Provisions</a></li>
+          <li><a href="#s19"><span class="n">19</span>Contact</a></li>
+        </ol>
+      </div>
+
+      <h2 id="s1">1. Definitions</h2>
+      <p>In these Terms, the following capitalized words and phrases have the meanings given below:</p>
+      <ul>
+        <li><strong>Service:</strong> The TTConnect platform, including ttconnect.us, app.ttconnect.us, and the TTConnect mobile applications for iOS and Android.</li>
+        <li><strong>User:</strong> Any individual who accesses or uses the Service, whether as a player, league director, club administrator, or otherwise.</li>
+        <li><strong>Player:</strong> A User registered as a participant in one or more leagues operated on the Service.</li>
+        <li><strong>Director / Club Administrator:</strong> A User with administrative privileges over a Club&rsquo;s leagues, including registering Players, managing divisions, and entering or correcting match results.</li>
+        <li><strong>Content:</strong> Any data, text, or information you submit to or generate through the Service, including Player profile data, match results, ratings, league metadata, equipment setup, feedback, and any other materials.</li>
+        <li><strong>USATT:</strong> USA Table Tennis, the national governing body for table tennis in the United States, including its membership management partner JustGo.</li>
+        <li><strong>Payment Processor:</strong> Stripe, Inc. and its affiliates (&ldquo;<strong>Stripe</strong>&rdquo;), the third-party payment service provider used to process payments through the Service, including via Stripe Connect.</li>
+        <li><strong>Club Payment:</strong> A payment made by a Player or other User to a Club through the Service (for example, a league registration or participation fee), where the Club — and not the Company — is the recipient of the funds and the party offering the goods or services being paid for.</li>
+        <li><strong>Beta:</strong> The current pre-release phase of the Service, during which the Service is provided to Users free of charge as described in Section 3.</li>
+        <li><strong>Company Parties:</strong> Yashwant Technologies Inc. and its officers, directors, employees, shareholders, contractors, agents, licensors, and successors.</li>
+      </ul>
+
+      <h2 id="s2">2. Eligibility and Account Registration</h2>
+      <h3 id="s2-1">2.1 Age</h3>
+      <p>To use the Service directly, you must be at least 13 years old. Players under 13 may have accounts on the Service only if a parent or legal guardian has consented to the account being created and operated on the minor&rsquo;s behalf, and only where a Director attests to that consent at the time of registration. See our <a href="privacy.html#s10">Privacy Policy, Section 10</a>, for details.</p>
+      <h3 id="s2-2">2.2 Account creation</h3>
+      <p>All accounts on the Service are created by Directors or Club Administrators on behalf of Players. Players do not self-register. You agree that information provided in connection with your account is accurate and that you will keep it up to date.</p>
+      <h3 id="s2-3">2.3 Account security</h3>
+      <p>You are responsible for safeguarding your password and any other credentials used to access your account, including any biometric sign-in credentials you enable on your device. You agree to notify us promptly of any unauthorized use of your account. You are responsible for all activity that occurs under your account, whether or not authorized by you, except to the extent caused by our gross negligence or willful misconduct.</p>
+      <h3 id="s2-4">2.4 One account per person</h3>
+      <p>You may not maintain more than one account on the Service without our express written permission. You may not share your account with any other person.</p>
+
+      <h2 id="s3">3. The Service During Beta</h2>
+      <h3 id="s3-1">3.1 Free of charge to Users</h3>
+      <p>The Service is currently in a Beta phase. During the Beta, access to and use of the Service is provided to Users at no cost. We are not currently charging Players, Directors, or Clubs a subscription or access fee for the Service itself. This Section 3 concerns fees for use of the Service and does not affect Club Payments, which are addressed in Section 6.</p>
+      <h3 id="s3-2">3.2 No Service-access payment obligations</h3>
+      <p>No payment is required for access to the Service during the Beta. You have no obligation to pay us for access to or use of the Service while the Beta is in effect. If we decide to introduce paid plans, subscription tiers, or fees for Clubs or other Users in the future, we will provide at least 60 days&rsquo; advance notice to existing Users, and your continued use of the Service after any such fees take effect will be governed by the pricing terms in place at that time. We will not retroactively charge you for use during the Beta.</p>
+      <h3 id="s3-3">3.3 Beta nature of the Service</h3>
+      <p>Because the Service is in Beta, you acknowledge that:</p>
+      <ul>
+        <li>The Service may contain bugs, errors, or other issues.</li>
+        <li>Features may change, be added, or be removed without notice.</li>
+        <li>Service availability may be interrupted for maintenance, debugging, or development.</li>
+        <li>Data integrity is our priority, but during Beta we cannot guarantee perfect uptime or that every feature will perform exactly as described.</li>
+      </ul>
+      <p class="legal-fine">You agree to use the Service during Beta with these limitations in mind, and to provide reasonable feedback to help us improve.</p>
+
+      <h2 id="s4">4. Your Responsibilities</h2>
+      <p>In using the Service, you agree to:</p>
+      <ul>
+        <li>Provide accurate and truthful information, including your name, USATT membership number (where applicable), and equipment setup.</li>
+        <li>Use the Service only for its intended purposes — organizing, participating in, and viewing table tennis league play and related activities.</li>
+        <li>Respect the privacy and dignity of other Users. Personal data of other Players visible to you through the Service is for league operation purposes only and must not be used for any other purpose.</li>
+        <li>Comply with all applicable laws and regulations, including those relating to youth participation, privacy, and online conduct.</li>
+        <li>Take reasonable steps to keep your account secure, including using a strong password and not sharing access with others.</li>
+      </ul>
+
+      <h2 id="s5">5. Club Director and Administrator Responsibilities</h2>
+      <p>Directors and Club Administrators have elevated privileges on the Service and accept additional responsibilities.</p>
+      <h3 id="s5-1">5.1 Player registration</h3>
+      <p>When you register a Player on the Service, you represent and warrant that you have a legitimate basis to do so — typically the Player&rsquo;s verbal or written consent to participate in a league you administer, or in the case of a minor under 13, the verifiable consent of a parent or legal guardian. You are responsible for the accuracy of Player information you enter, and you will indemnify and hold harmless the Company Parties (as provided in Section 13) for any claim by a Player, parent, guardian, or other third party arising out of your registration of any Player or your handling of Player information.</p>
+      <h3 id="s5-2">5.2 Match results</h3>
+      <p>Directors are responsible for ensuring that match results entered into the Service accurately reflect actual play. You agree not to enter false results, manipulate the rating system, or override scores without legitimate cause. We trust Directors to be honest stewards of league data; abuse of this trust is grounds for account termination.</p>
+      <h3 id="s5-3">5.3 Role assignments</h3>
+      <p>If you have authority to assign roles (Player, Director, or Admin) to other Users, you agree to do so only in accordance with the legitimate operational needs of your Club, and to maintain a record (which the Service captures automatically) of role changes.</p>
+      <h3 id="s5-4">5.4 Minor Players</h3>
+      <p>When registering Players under the age of 13, you confirm that you have obtained verifiable consent from each minor&rsquo;s parent or legal guardian, and you represent and warrant that you have collected, documented, and retained evidence of such consent in accordance with applicable law. This attestation is recorded by the Service and may be reviewed by us in the event of a privacy inquiry from a parent, guardian, or regulator. Misrepresentation of consent is a material breach of these Terms.</p>
+      <h3 id="s5-5">5.5 No agency relationship</h3>
+      <p>Directors and Club Administrators are not employees, agents, partners, or joint venturers of the Company. The Company does not authorize Directors or Club Administrators to make any representation, warranty, or commitment on the Company&rsquo;s behalf, and the Company is not liable for any act, omission, statement, or undertaking made by a Director or Club Administrator outside the scope of these Terms.</p>
+
+      <h2 id="s6">6. Payments and Payment Processing</h2>
+      <h3 id="s6-1">6.1 Payment processing through Stripe</h3>
+      <p>The Service may offer features that allow a Club to collect Club Payments from Players (for example, league registration or participation fees). All payments made through the Service are processed by our Payment Processor, <strong>Stripe</strong>, including through Stripe Connect. By making or receiving a payment through the Service, you also agree to Stripe&rsquo;s applicable terms of service and authorize Stripe to process the transaction. Your use of Stripe&rsquo;s services is governed by Stripe&rsquo;s own agreements and privacy policy.</p>
+      <h3 id="s6-2">6.2 We do not store sensitive payment data</h3>
+      <p>Payment card numbers, card security codes, bank account numbers, and similar sensitive payment credentials are collected and processed directly by Stripe and are <strong>not collected, transmitted, or stored by the Company</strong>. The Company receives only non-sensitive payment metadata (such as transaction identifiers, status, amount, and the card brand and last four digits) for display, reconciliation, support, and accounting purposes, as described in the <a href="privacy.html#s3-2">Privacy Policy</a>.</p>
+      <h3 id="s6-3">6.3 The Club is the merchant of record for Club Payments</h3>
+      <p>For Club Payments, <strong>the receiving Club — not the Company — is the merchant of record and the party offering and responsible for the goods or services being paid for.</strong> The Club connects its own Stripe account, and funds from Club Payments are routed to the Club&rsquo;s Stripe account. The Company acts solely as a technology platform that facilitates the connection between the Player, the Club, and Stripe. <strong>The Company is not a party to any Club Payment transaction, does not take custody of Club Payment funds, and is not a bank, money transmitter, payment institution, or escrow agent.</strong></p>
+      <h3 id="s6-4">6.4 Club responsibilities for Club Payments</h3>
+      <p>A Club that uses the payment features is solely responsible for: setting the amounts it charges; the goods, services, or league access it provides in exchange; issuing and honoring any refunds, credits, or cancellations; resolving disputes and chargebacks with Players; maintaining its own Stripe account in good standing; and complying with all applicable laws, including tax, consumer-protection, and registration-fee laws. <strong>The Company is not responsible for, and disclaims all liability relating to, the underlying goods or services, refunds, chargebacks, disputes, or any other aspect of the relationship between a Player and a Club arising from a Club Payment.</strong></p>
+      <h3 id="s6-5">6.5 Player acknowledgements</h3>
+      <p>If you make a Club Payment, you acknowledge that you are paying the Club and not the Company, that the Company does not control the Club&rsquo;s leagues, fees, or refund practices, and that any dispute regarding a Club Payment is between you and the Club (subject to any rights you may have through Stripe or your card issuer). You agree to provide accurate payment information and represent that you are authorized to use the payment method you provide.</p>
+      <h3 id="s6-6">6.6 Fees payable to the Company</h3>
+      <p>The mode, structure, and timing of any fees that the Company may charge a Club for use of the Service have not been finalized and are not currently charged during the Beta (see Section 3). If and when the Company introduces such fees, the Company will provide advance notice as described in Section 3.2, the applicable fee terms will be presented to the affected Club before any charge takes effect, and continued use of the relevant paid features after that date will constitute acceptance of those fee terms. Any such fees payable to the Company are separate and distinct from Club Payments.</p>
+      <h3 id="s6-7">6.7 Taxes</h3>
+      <p>Each party is responsible for its own taxes arising from its use of the Service and from any payments it makes or receives. The Company does not calculate, collect, report, or remit taxes on behalf of any Club or Player in connection with Club Payments, and a Club is responsible for determining and meeting its own tax obligations.</p>
+
+      <h2 id="s7">7. Acceptable Use</h2>
+      <p>You agree not to, and not to attempt to, do any of the following:</p>
+      <ul>
+        <li>Use the Service for any unlawful purpose or in any manner that violates applicable law or third-party rights.</li>
+        <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Service, except to the extent expressly permitted by applicable law.</li>
+        <li>Probe, scan, or test the vulnerability of the Service, or breach or attempt to breach any security or authentication measures, without our prior written authorization.</li>
+        <li>Use any automated means (robots, scrapers, etc.) to access the Service or collect information from it, except for ordinary use through documented APIs.</li>
+        <li>Submit false, misleading, or manipulated data to the Service, including but not limited to fabricated match results, fake Player identities, or falsified USATT membership numbers.</li>
+        <li>Use the Service, or the payment features of the Service, to process fraudulent, unauthorized, or unlawful transactions, to launder funds, or to evade Stripe&rsquo;s terms or applicable financial-services laws.</li>
+        <li>Use the Service to harass, abuse, threaten, defame, or otherwise harm another User.</li>
+        <li>Upload or transmit viruses, malware, or any other code intended to disrupt, damage, or limit the functioning of the Service.</li>
+        <li>Resell, sublicense, or commercially redistribute the Service or access to it.</li>
+        <li>Use the Service in any way that could damage, disable, overburden, or impair our systems.</li>
+      </ul>
+      <p class="legal-fine">We reserve the right to investigate and respond to suspected violations of this section, including by suspending or terminating affected accounts. We may exercise this right with or without notice and at our sole discretion.</p>
+
+      <h2 id="s8">8. Intellectual Property</h2>
+      <h3 id="s8-1">8.1 Our intellectual property</h3>
+      <p>The Service, including all software, design, text, graphics, logos, and other content (other than User Content) is the property of Yashwant Technologies Inc. and is protected by copyright, trademark, and other intellectual property laws. &ldquo;TTConnect,&rdquo; the TTConnect logo, and related marks are trademarks of Yashwant Technologies Inc. You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the Service in accordance with these Terms. All rights not expressly granted in these Terms are reserved by the Company.</p>
+      <p>USATT is a registered trademark of USA Table Tennis. JustGo is a registered trademark of GoMembership / JustGo Ltd. Stripe is a registered trademark of Stripe, Inc. All other trademarks, service marks, and trade names referenced in the Service or these Terms are the property of their respective owners, and their use does not imply any affiliation with or endorsement by those owners.</p>
+      <h3 id="s8-2">8.2 Your Content</h3>
+      <p>You retain ownership of any Content you submit to the Service. By submitting Content to the Service, you grant us a worldwide, non-exclusive, royalty-free, sublicensable license to host, store, transmit, display, reproduce, modify (for technical purposes such as format conversion), and process that Content as necessary to operate, secure, and improve the Service, including making Content visible to other Users where the Service&rsquo;s functionality requires it (for example, league standings, match results, and ratings visible to fellow Players). This license continues for as long as the Content remains on the Service and survives termination of your account to the extent reasonably necessary for legitimate operational, audit, and legal purposes.</p>
+      <h3 id="s8-3">8.3 Aggregated and anonymized data</h3>
+      <p>You agree that we may use aggregated, anonymized, statistical, and derived data based on your use of the Service — data that does not identify any individual — for any lawful purpose, including operating, securing, analyzing, and improving the Service, training analytical models, conducting research, and publishing statistical insights about table tennis league activity. Such data is owned by the Company.</p>
+      <h3 id="s8-4">8.4 Feedback</h3>
+      <p>If you provide feedback, suggestions, or ideas to us about the Service (whether through the in-app feedback feature or otherwise), you grant us a perpetual, irrevocable, worldwide, royalty-free, fully paid-up right to use, modify, and exploit that feedback freely, without compensation or attribution, for any purpose.</p>
+
+      <h2 id="s9">9. Privacy and Data Protection</h2>
+      <p>Our collection, use, and protection of personal information is described in the <a href="privacy.html">TTConnect Privacy Policy</a>, which is incorporated into these Terms by reference. By using the Service, you acknowledge that you have read and understood the Privacy Policy. The disclaimers, limitations of liability, indemnification, and dispute-resolution provisions of these Terms apply equally to claims arising under or relating to the Privacy Policy or our processing of personal information.</p>
+      <p>If you have questions about how your personal information is processed, or to exercise the rights described in the Privacy Policy, please contact us at <a href="/cdn-cgi/l/email-protection#c8a9aca5a1a688bcbcaba7a6a6adabbce6bdbb"><span class="__cf_email__" data-cfemail="e9888d848087a99d9d8a8687878c8a9dc79c9a">[email&#160;protected]</span></a>.</p>
+
+      <h2 id="s10">10. Third-Party Services</h2>
+      <p>The Service relies on, and integrates with, certain third-party services to function. These include cloud infrastructure (Amazon Web Services), authentication (Amazon Cognito), email delivery (Amazon Simple Email Service), push notifications (Apple Push Notification service and Firebase Cloud Messaging), payment processing (Stripe, including Stripe Connect), and USATT membership and ratings (via JustGo). A current list of third-party services is in the <a href="privacy.html#s6">Privacy Policy, Section 6</a>.</p>
+      <p>We are not responsible for the availability, accuracy, content, security, or performance of third-party services, and your use of those services is subject to their own terms. In particular, payments are subject to Stripe&rsquo;s terms and policies, and the Company is not responsible for any act, omission, error, delay, suspension, hold, or decision of Stripe, or for any consequence of Stripe&rsquo;s processing or refusal to process a transaction. If a third-party service we depend on becomes unavailable, degraded, or modifies its terms, the Service may be temporarily or permanently affected, and we are not liable for any resulting impact on your use of the Service.</p>
+
+      <h2 id="s11">11. Disclaimers and Warranties</h2>
+      <div class="legal-emph">
+        <p><strong>THE SERVICE IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE,&rdquo; WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT, AND ANY WARRANTIES ARISING OUT OF COURSE OF DEALING OR USAGE OF TRADE. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE FROM HARMFUL COMPONENTS.</strong></p>
+      </div>
+      <p>Without limiting the foregoing, we do not warrant that:</p>
+      <ul>
+        <li>The Service will meet your specific requirements or expectations.</li>
+        <li>USATT ratings or other calculated values produced by the Service will be free from error. We use commercially reasonable efforts to apply the USATT three-pass rating algorithm correctly, but rating calculations depend on data accuracy and on integrations with third parties, and may occasionally produce results that require correction. <strong>We are not liable for any consequences of rating calculations, including but not limited to tournament eligibility, seeding, sponsorship eligibility, prize money, ranking placement, or any other downstream effect of a published rating.</strong></li>
+        <li>Match results, standings, or other Content displayed by the Service are free from error. Directors are responsible for verifying data accuracy.</li>
+        <li>Payments processed through the Service will be completed without error, delay, or interruption, or that the payment features will be available at all times. Payment processing depends on Stripe and other third parties outside our control.</li>
+        <li>The Service will be compatible with every device, operating system, or browser.</li>
+        <li>Any feature of the Service will continue to be offered, or will be offered on the same terms.</li>
+      </ul>
+      <p>You have not relied on any statement, representation, warranty, or promise made by or on behalf of the Company that is not expressly contained in these Terms or the Privacy Policy. Any prior or contemporaneous discussions, marketing materials, demonstrations, or communications are superseded by these Terms.</p>
+      <p class="legal-fine">Some jurisdictions do not allow the exclusion of certain warranties; in those jurisdictions, the exclusions above apply to you only to the extent permitted by law.</p>
+
+      <h2 id="s12">12. Limitation of Liability</h2>
+      <div class="legal-emph">
+        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</strong></p>
+        <p><strong>IN NO EVENT WILL THE COMPANY PARTIES BE LIABLE TO YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, REPUTATION, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO YOUR USE OF, OR INABILITY TO USE, THE SERVICE, REGARDLESS OF THE CAUSE OF ACTION (WHETHER IN CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE), AND EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</strong></p>
+        <p><strong>OUR TOTAL CUMULATIVE LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE SERVICE, THESE TERMS, THE PRIVACY POLICY, OR ANY OTHER MATTER (REGARDLESS OF THE CAUSE OF ACTION) WILL NOT EXCEED ONE HUNDRED U.S. DOLLARS (USD $100). YOU AGREE THAT THIS LIMITATION REFLECTS THE FACT THAT THE SERVICE IS PROVIDED TO YOU FREE OF CHARGE DURING THE BETA, AND THAT, WITHOUT THIS LIMITATION, THE COMPANY WOULD NOT BE WILLING TO OFFER THE SERVICE ON THE CURRENT TERMS.</strong></p>
+      </div>
+      <p><strong>Club Payments.</strong> For the avoidance of doubt, the Company&rsquo;s liability cap above applies to all claims, including any claim relating to a Club Payment. Because Club Payments are made to Clubs and not to the Company, and the Company does not take custody of those funds, the Company is not liable for the amount of any Club Payment, any refund or chargeback, or any dispute between a Player and a Club. Any remedy for a Club Payment dispute lies with the Club, with Stripe, or with your card issuer, as applicable.</p>
+      <p><strong>No personal liability of officers, directors, employees, shareholders, contractors, or agents.</strong> All obligations of the Company under these Terms and the Privacy Policy are the obligations of Yashwant Technologies Inc. as the operating entity. <strong>No officer, director, employee, shareholder, contractor, or agent of the Company is personally liable to you or to any third party for any obligation under these Terms, the Privacy Policy, or for any claim arising out of or relating to the Service.</strong> You agree not to bring or assert any claim against any individual associated with the Company in their personal capacity arising out of or relating to the Service.</p>
+      <p class="legal-fine">Some jurisdictions do not allow the limitation or exclusion of liability for certain damages; in those jurisdictions, the limitations above apply to you only to the extent permitted by law. The exclusion of personal liability of officers, directors, employees, and agents is a fundamental basis of these Terms and is intended to be enforced to the fullest extent permitted by law.</p>
+
+      <h2 id="s13">13. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless the Company Parties from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys&rsquo; fees, expert fees, and costs of investigation and defense) arising out of or relating to:</p>
+      <ul>
+        <li>Your violation of these Terms;</li>
+        <li>Your violation of any applicable law or third-party right;</li>
+        <li>Content that you submit to the Service;</li>
+        <li>Your unauthorized use of the Service or your use in a manner inconsistent with these Terms;</li>
+        <li>If you are a Director or Club Administrator, your registration of any Player on the Service, your handling of Player information, your role assignments to other Users, your attestation of parental or guardian consent for any minor, your collection of or failure to honor any Club Payment, or any other action you take in your capacity as a Director or Club Administrator;</li>
+        <li>Any dispute between you and another User, or between a Player and a Club regarding a Club Payment.</li>
+      </ul>
+      <p>We reserve the right, at our own expense and without limiting your indemnification obligations, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, in which case you agree to cooperate fully with our defense of such claim. You may not settle any claim subject to this Section 13 without our prior written consent.</p>
+
+      <h2 id="s14">14. Dispute Resolution; Arbitration; Class Action Waiver</h2>
+      <div class="legal-emph">
+        <p><strong>Please read this section carefully. It affects your legal rights, including your right to file a lawsuit in court and to participate in class or collective proceedings.</strong></p>
+      </div>
+      <h3 id="s14-1">14.1 Informal resolution</h3>
+      <p>Before filing a formal claim against us, you agree to first contact us at <a href="/cdn-cgi/l/email-protection#1677727b7f7856626275797878737562386365"><span class="__cf_email__" data-cfemail="1e7f7a7377705e6a6a7d7170707b7d6a306b6d">[email&#160;protected]</span></a> with a description of your claim and attempt in good faith to resolve the dispute informally for at least sixty (60) days.</p>
+      <h3 id="s14-2">14.2 Binding arbitration</h3>
+      <p>If we cannot resolve a dispute informally, any dispute, claim, or controversy arising out of or relating to these Terms, the Privacy Policy, or the Service — except for claims excluded under Section 14.6 below — will be resolved by binding arbitration administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules, rather than in court, except that you may assert claims in small-claims court if your claims qualify and remain in small-claims court.</p>
+      <p>The arbitration will be conducted in the State of Delaware, or by remote or video proceeding at the arbitrator&rsquo;s election. The arbitrator&rsquo;s decision will be final and binding. Judgment on the award rendered by the arbitrator may be entered in any court having jurisdiction.</p>
+      <h3 id="s14-3">14.3 Class action waiver and mass arbitration waiver</h3>
+      <div class="legal-emph">
+        <p><strong>YOU AND WE EACH AGREE THAT ANY DISPUTE RESOLUTION PROCEEDING — WHETHER IN ARBITRATION OR IN COURT — WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT AS A CLASS ACTION, CONSOLIDATED ACTION, REPRESENTATIVE ACTION, OR PRIVATE ATTORNEY GENERAL ACTION. NEITHER YOU NOR WE WILL SEEK TO HAVE A CLAIM CERTIFIED OR ADJUDICATED ON A CLASS-WIDE, COLLECTIVE, OR REPRESENTATIVE BASIS.</strong></p>
+        <p><strong>YOU AGREE NOT TO COORDINATE, CONSOLIDATE, OR FILE ARBITRATION CLAIMS WITH ANY OTHER USER AGAINST THE COMPANY IN A MANNER THAT WOULD CAUSE THE COMPANY TO INCUR MASS ARBITRATION FILING FEES OR ARBITRATOR FEES IN AGGREGATE FOR SIMULTANEOUSLY-FILED CLAIMS. ANY ARBITRATION FILED IN COORDINATION WITH MORE THAN TEN OTHER ARBITRATIONS ASSERTING SUBSTANTIALLY SIMILAR CLAIMS AGAINST THE COMPANY WITHIN A THIRTY-DAY PERIOD MAY BE STAYED PENDING THE RESOLUTION OF AN INITIAL ARBITRATION SELECTED BY THE COMPANY AS A BELLWETHER.</strong></p>
+        <p><strong>IF FOR ANY REASON A CLAIM PROCEEDS IN COURT RATHER THAN IN ARBITRATION, YOU AND WE EACH WAIVE ANY RIGHT TO A JURY TRIAL.</strong></p>
+      </div>
+      <h3 id="s14-4">14.4 Opt-out</h3>
+      <p>You may opt out of this arbitration agreement (Sections 14.2 and 14.3) by sending written notice of your decision to opt out to <a href="/cdn-cgi/l/email-protection#1d7c797074735d69697e727373787e6933686e"><span class="__cf_email__" data-cfemail="7a1b1e1713143a0e0e191514141f190e540f09">[email&#160;protected]</span></a> within thirty (30) days of first accepting these Terms. Your notice must include your name, the email address associated with your account, and a clear statement that you wish to opt out of the arbitration agreement. Opting out of arbitration does not waive any other provision of these Terms, including the class action waiver and jury-trial waiver, which remain in effect for any judicial action.</p>
+      <h3 id="s14-5">14.5 Governing law and venue</h3>
+      <p>These Terms are governed by the laws of the State of Delaware, without regard to its conflict of laws principles. Subject to the arbitration provisions above, any judicial action permitted under these Terms (including small-claims court matters, actions excluded under Section 14.6 below, and actions to enforce or confirm an arbitration award) will be brought exclusively in the state or federal courts located in Delaware, and you consent to the personal jurisdiction of those courts.</p>
+      <h3 id="s14-6">14.6 Exceptions to arbitration</h3>
+      <p>Notwithstanding Section 14.2, the following types of claims may be brought in court rather than in arbitration:</p>
+      <ul>
+        <li>Claims for injunctive or other equitable relief to prevent or stop unauthorized use of the Company&rsquo;s intellectual property, breach of Section 7 (Acceptable Use), or breach of confidentiality obligations.</li>
+        <li>Claims for collection of any amounts you owe to the Company.</li>
+        <li>Claims brought in small-claims court that remain in small-claims court.</li>
+        <li>Claims alleging infringement or misappropriation of intellectual property rights.</li>
+      </ul>
+      <p>This Section 14.6 is intended to provide the Company with judicial recourse for the limited matters listed; it does not expand the user&rsquo;s right to file in court for any other category of claim.</p>
+      <h3 id="s14-7">14.7 Severability of arbitration provisions</h3>
+      <p>If any provision of this Section 14 is found unenforceable, the remaining provisions will be enforced to the maximum extent permitted by law. If the class action waiver in Section 14.3 is found unenforceable with respect to any portion of a dispute, that portion will be litigated in court and the remainder will be arbitrated in accordance with this Section 14.</p>
+
+      <h2 id="s15">15. Termination</h2>
+      <h3 id="s15-1">15.1 By you</h3>
+      <p>You may stop using the Service at any time. To delete your account, contact us at <a href="/cdn-cgi/l/email-protection#5637323b3f3816222235393838333522782325"><span class="__cf_email__" data-cfemail="84e5e0e9edeac4f0f0e7ebeaeae1e7f0aaf1f7">[email&#160;protected]</span></a>, or, if Club-level deletion is required, ask your Club&rsquo;s Director or Administrator. Deletion is subject to the limitations described in our <a href="privacy.html">Privacy Policy</a>.</p>
+      <h3 id="s15-2">15.2 By us</h3>
+      <p><strong>We may suspend or terminate your access to the Service at any time, with or without notice, and with or without cause.</strong> Without limiting the foregoing, we may suspend or terminate access if we believe in good faith that you have violated these Terms, that your account has been compromised, that continued access would create legal, security, or operational risk, or for any other reason in our sole discretion.</p>
+      <h3 id="s15-3">15.3 Effect of termination</h3>
+      <p>Upon termination of your account, your right to access the Service ends. Sections that by their nature should survive termination — including Sections 6, 8, 11, 12, 13, 14, and 18 — will survive. We have no liability to you for terminating or suspending your account, and no obligation to retain or provide your Content after termination, except as required by applicable law or expressly set out in Section 16.</p>
+
+      <h2 id="s16">16. Service Continuity and Data Export</h2>
+      <p>Because we are a small company operating during a Beta period, we believe it is fair to be explicit about what happens to your data in the event that the Service is discontinued.</p>
+      <p>If we decide to discontinue the Service, in whole or for any meaningful subset of Users, <strong>we will use commercially reasonable efforts to provide</strong> at least thirty (30) days&rsquo; advance written notice via email to active account holders. During that notice period, we will use commercially reasonable efforts to make available a means for you to export your league and Player data in a portable format (CSV or equivalent). League and match records belong to you and your Club, and we will not artificially restrict your ability to retrieve them during such notice period.</p>
+      <p class="legal-fine">Nothing in this section creates a guarantee of continued operation of the Service or a contractual obligation to maintain a specific level of service. It is a statement of intent regarding data portability in the event of discontinuation. Where circumstances beyond our reasonable control prevent advance notice or data export (including but not limited to insolvency, force majeure, regulatory action, or loss of access to third-party infrastructure), our obligations under this Section 16 are limited accordingly.</p>
+
+      <h2 id="s17">17. Changes to These Terms</h2>
+      <p>We may revise these Terms from time to time. If we make material changes — such as changes to the arbitration provisions, the limitation of liability, the payment terms, or the pricing terms — we will provide reasonable advance notice through the Service or by email to the address associated with your account.</p>
+      <p>Your continued use of the Service after the effective date of revised Terms constitutes your acceptance of those Terms. If you do not agree to the revised Terms, you must stop using the Service before they take effect.</p>
+
+      <h2 id="s18">18. General Provisions</h2>
+      <h3 id="s18-1">18.1 Entire agreement; no reliance</h3>
+      <p>These Terms, together with the Privacy Policy and any other documents expressly incorporated by reference, constitute the entire agreement between you and Yashwant Technologies Inc. regarding the Service and supersede any prior or contemporaneous agreements, communications, marketing materials, demonstrations, or representations, whether oral or written. You acknowledge that you have not relied on any statement, representation, warranty, or promise not expressly contained in these Terms or the Privacy Policy.</p>
+      <h3 id="s18-2">18.2 Severability</h3>
+      <p>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will remain in full force and effect, and the invalid provision will be modified to the minimum extent necessary to be enforceable while preserving the intent of the original provision.</p>
+      <h3 id="s18-3">18.3 No waiver</h3>
+      <p>Our failure to enforce any provision of these Terms is not a waiver of that provision or any other provision. Any waiver must be in writing and signed by an authorized representative of the Company to be effective.</p>
+      <h3 id="s18-4">18.4 Assignment</h3>
+      <p>You may not assign or transfer these Terms or your account without our prior written consent, and any attempted assignment in violation of this section is void. We may assign these Terms, in whole or in part, in connection with a merger, acquisition, financing, reorganization, sale of assets, or similar transaction, on notice to you.</p>
+      <h3 id="s18-5">18.5 Force majeure</h3>
+      <p>We will not be liable for any failure or delay in performance, or for any unavailability of the Service, caused by circumstances beyond our reasonable control, including natural disasters, war, civil unrest, pandemic, labor disputes, internet outages, denial-of-service attacks, regulatory action, third-party infrastructure failures (including failures or interruptions of our payment processor), or acts of third parties.</p>
+      <h3 id="s18-6">18.6 Independent relationship</h3>
+      <p>Nothing in these Terms creates any agency, partnership, joint venture, employment, or fiduciary relationship between you and the Company. Directors and Club Administrators are not agents, employees, or representatives of the Company, and the Company is not liable for any act, omission, or statement of any Director or Club Administrator outside the scope of these Terms.</p>
+      <h3 id="s18-7">18.7 No third-party beneficiaries</h3>
+      <p>Except for the Company Parties (who are intended third-party beneficiaries of the limitation of liability, indemnification, and other protective provisions of these Terms), these Terms are for the benefit of you and us only and do not create any rights for any third party.</p>
+      <h3 id="s18-8">18.8 Notices</h3>
+      <p>Notices to you may be provided by email to the address associated with your account or by posting in the Service. Notices to us must be sent to <a href="/cdn-cgi/l/email-protection#aacbcec7c3c4eadedec9c5c4c4cfc9de84dfd9"><span class="__cf_email__" data-cfemail="f59491989c9bb58181969a9b9b909681db8086">[email&#160;protected]</span></a> with a copy mailed (if requested by us) to the address provided on request.</p>
+      <h3 id="s18-9">18.9 Headings</h3>
+      <p>Section headings in these Terms are for convenience only and do not affect the interpretation of the provisions to which they relate.</p>
+
+      <h2 id="s19">19. Contact</h2>
+      <p>If you have questions, concerns, or notices regarding these Terms, please contact us:</p>
+      <div class="legal-table">
+        <table>
+          <tbody>
+            <tr><td>Company</td><td>Yashwant Technologies Inc.</td></tr>
+            <tr><td>Jurisdiction of Incorporation</td><td>New Jersey, United States</td></tr>
+            <tr><td>Service</td><td>TTConnect</td></tr>
+            <tr><td>Email</td><td><a href="/cdn-cgi/l/email-protection#49282d242027093d3d2a2627272c2a3d673c3a"><span class="__cf_email__" data-cfemail="ea8b8e878384aa9e9e898584848f899ec49f99">[email&#160;protected]</span></a></td></tr>
+            <tr><td>Website</td><td><a href="https://ttconnect.us">https://ttconnect.us</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legal-fine">We will respond to your inquiry as soon as reasonably practicable.</p>
+
+      <div class="legal-end">— End of Terms of Service —</div>
+
+      <div class="legal__meta">
+        <span>Version 1.2</span>
+        <span>Effective June 17, 2026</span>
+        <span>© 2026 Yashwant Technologies Inc. All rights reserved.</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="/cdn-cgi/l/email-protection#5031343d393e102424333f3e3e3533247e2523">Contact</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="/cdn-cgi/l/email-protection#68090c050106281c1c0b0706060d0b1c461d1b"><span class="__cf_email__" data-cfemail="0362676e6a6d437777606c6d6d6660772d7670">[email&#160;protected]</span></a></li><li><a href="/cdn-cgi/l/email-protection#2b4a4f4642456b5f5f484445454e485f055e5814585e49414e485f166742585f0e191b46520e191b48475e49">List your club</a></li><li><a href="/cdn-cgi/l/email-protection#aecfcac3c7c0eedadacdc1c0c0cbcdda80dbdd91dddbccc4cbcdda93fedccbdddd8b9c9ec7c0dfdbc7dcd7">Press</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · Yashwant Technologies Inc.</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/main.js" defer></script>
+</body>
+</html>
