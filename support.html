@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support · TTConnect</title>
+<meta name="description" content="Get help with TTConnect — contact support, common questions, and account help for the TTConnect app." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  .legal {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  .legal h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-top: 64px;
+    scroll-margin-top: 90px;
+  }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal p, .legal li {
+    color: var(--ink-2);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .legal p + p, .legal p + ul, .legal ul + p { margin-top: 14px; }
+  .legal ul {
+    margin: 14px 0 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .legal a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .legal__meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* Primary contact call-out */
+  .support-callout {
+    margin-top: 32px;
+    background: var(--forest);
+    color: var(--paper);
+    border-radius: var(--r-xl);
+    padding: clamp(28px, 4vw, 44px);
+  }
+  .support-callout .eyebrow { color: rgba(255,250,240,0.7); }
+  .support-callout .eyebrow::before { background: var(--orange); }
+  .support-callout h2 {
+    color: var(--paper);
+    margin-top: 16px;
+    font-size: clamp(26px, 3.4vw, 38px);
+    letter-spacing: -0.02em;
+  }
+  .support-callout p {
+    color: rgba(255,250,240,0.82);
+    font-size: 17px;
+    line-height: 1.6;
+    margin-top: 14px;
+    max-width: 54ch;
+  }
+  .support-callout a { color: var(--paper); text-decoration-color: var(--orange); }
+  .support-cta { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Contact cards */
+  .contact-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .contact-card {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 24px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-card__label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .contact-card__value {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .contact-card__value a { color: var(--ink); text-decoration-color: var(--orange); }
+  .contact-card p {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq { margin-top: 22px; border-top: 1px solid var(--line); }
+  .faq details {
+    border-bottom: 1px solid var(--line-soft);
+    padding: 6px 0;
+  }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 40px 18px 0;
+    position: relative;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--ink-3);
+    transition: transform .2s ease;
+    line-height: 1;
+  }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details[open] summary { color: var(--orange); }
+  .faq__body { padding: 0 0 20px; }
+  .faq__body p { margin-top: 0; }
+  .faq__body p + p { margin-top: 12px; }
+
+  .legal-end {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home"><span class="logo__ball" aria-hidden="true"></span><span><b>TT</b><span>Connect</span></span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html">Leagues</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="https://app.ttconnect.us" target="_blank" rel="noopener">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="index.html#join">Join free</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Help · support</span>
+      <h1>Support.</h1>
+      <p class="lead">Stuck on something, found a bug, or have a question about your account? We're a small team and we read every message.</p>
+      <div class="legal__meta" style="margin-top:28px; border-top:none; padding-top:0;">
+        <span>TTConnect</span>
+        <span>Operated by Yashwant Technologies Inc.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0;">
+    <div class="legal">
+
+      <div class="support-callout">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Email us — we usually reply within 2 business days.</h2>
+        <p>Tell us what's going on and, if you can, the email address tied to your account plus a screenshot. The more you share, the faster we can help.</p>
+        <div class="support-cta">
+          <a class="btn btn--accent" href="/cdn-cgi/l/email-protection#6b181e1b1b04191f2b1f1f080405050e081f451e1854181e09010e081f563f3f280405050e081f4e595b0a1b1b4e595b181e1b1b04191f">Email <span class="__cf_email__" data-cfemail="b6c5c3c6c6d9c4c2f6c2c2d5d9d8d8d3d5c298c3c5">[email&#160;protected]</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <h2 id="contact">Ways to reach us</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-card__label">General support</span>
+          <span class="contact-card__value"><a href="/cdn-cgi/l/email-protection#62111712120d1016221616010d0c0c0701164c1711"><span class="__cf_email__" data-cfemail="94e7e1e4e4fbe6e0d4e0e0f7fbfafaf1f7e0bae1e7">[email&#160;protected]</span></a></span>
+          <p>App help, bug reports, league and rating questions.</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card__label">Account deletion</span>
+          <span class="contact-card__value"><a href="/cdn-cgi/l/email-protection#1a7b7e7773745a6e6e797574747f796e346f6925696f78707f796e275e7f767f6e7f3f282a57633f282a5b7979756f746e"><span class="__cf_email__" data-cfemail="4021242d292e003434232f2e2e2523346e3533">[email&#160;protected]</span></a></span>
+          <p>Request deletion of your account and data. <a href="data-delete.html">See the process</a>.</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card__label">List your club or league</span>
+          <span class="contact-card__value"><a href="/cdn-cgi/l/email-protection#d3a0a6a3a3bca1a793a7a7b0bcbdbdb6b0a7fda6a0eca0a6b1b9b6b0a7ee9fbaa0a7f6e1e3beaaf6e1e3b0bfa6b1"><span class="__cf_email__" data-cfemail="b1c2c4c1c1dec3c5f1c5c5d2dedfdfd4d2c59fc4c2">[email&#160;protected]</span></a></span>
+          <p>Run a club or league? We'll help you get set up.</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card__label">Privacy</span>
+          <span class="contact-card__value"><a href="privacy.html">ttconnect.us/privacy</a></span>
+          <p>How we collect, use, and protect your data.</p>
+        </div>
+      </div>
+
+      <h2 id="faq">Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>I forgot my password — how do I reset it?</summary>
+          <div class="faq__body">
+            <p>On the sign-in screen, tap <strong>Forgot password?</strong> and enter the email address on your account. We'll send a reset link. If it doesn't arrive within a few minutes, check your spam folder or email us at <a href="/cdn-cgi/l/email-protection#f3808683839c8187b38787909c9d9d969087dd8680"><span class="__cf_email__" data-cfemail="c8bbbdb8b8a7babc88bcbcaba7a6a6adabbce6bdbb">[email&#160;protected]</span></a>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Why is my TTConnect rating different from my USATT rating?</summary>
+          <div class="faq__body">
+            <p>Your TTConnect rating reflects TTConnect league play only — it is not your official USATT rating. If you have a USATT membership number, your official status and rating are looked up separately and shown where applicable.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How do I join a league or club?</summary>
+          <div class="faq__body">
+            <p>Most leagues are set up by a club or league director who adds players. If you'd like to join one near you, browse <a href="leagues.html">Leagues</a> and <a href="clubs.html">Clubs</a>, or email us and we'll point you to the right organizer.</p>
+          </div>
+        </details>
+        <details>
+          <summary>A match score looks wrong. Can it be fixed?</summary>
+          <div class="faq__body">
+            <p>Scores and standings are managed by your league director. Reach out to them first. If something still looks off, email <a href="/cdn-cgi/l/email-protection#cab9bfbabaa5b8be8abebea9a5a4a4afa9bee4bfb9"><span class="__cf_email__" data-cfemail="582b2d2828372a2c182c2c3b3736363d3b2c762d2b">[email&#160;protected]</span></a> with the league name and the match in question and we'll take a look.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How do I delete my account?</summary>
+          <div class="faq__body">
+            <p>Email <a href="/cdn-cgi/l/email-protection#48292c252126083c3c2b2726262d2b3c663d3b773b3d2a222d2b3c750c2d242d3c2d6d7a7805316d7a78092b2b273d263c"><span class="__cf_email__" data-cfemail="a2c3c6cfcbcce2d6d6c1cdccccc7c1d68cd7d1">[email&#160;protected]</span></a> from your account email with the subject line "Delete My Account." We verify the request and process it within 30 days. Full details are on the <a href="data-delete.html">account &amp; data deletion</a> page.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="legal-end">— We're here to help —</div>
+
+      <div class="legal__meta">
+        <span>TTConnect</span>
+        <span>© 2026 Yashwant Technologies Inc.</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="about.html#mission">Mission</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="/cdn-cgi/l/email-protection#473432373728353307333324282929222433693234"><span class="__cf_email__" data-cfemail="7e0d0b0e0e110c0a3e0a0a1d1110101b1d0a500b0d">[email&#160;protected]</span></a></li><li><a href="data-delete.html">Delete my account</a></li><li><a href="/cdn-cgi/l/email-protection#f5868085859a8781b58181969a9b9b909681db8086ca8680979f909681c8a587908686d0c7c59c9b84809c878c">Press</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · Yashwant Technologies Inc.</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/main.js" defer></script>
+</body>
+</html>
