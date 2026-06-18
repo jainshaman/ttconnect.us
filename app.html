@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The TTConnect app · Your rating, every rally</title>
+<meta name="description" content="TTConnect is the app for recreational table tennis players — track your league rating, read honest analytics on your matchups, and follow live standings. Free on iOS and Android." />
+<meta name="theme-color" content="#1a1411" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="The TTConnect app — your rating, every rally" />
+<meta property="og:description" content="Track your league rating, read honest analytics, and follow live standings. Free on iOS and Android." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  /* ---- App hero ---- */
+  .app-hero {
+    position: relative;
+    padding: clamp(40px, 6vw, 76px) 0 clamp(48px, 6vw, 88px);
+    overflow: hidden;
+  }
+  .app-hero__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .app-hero h1 { margin-top: 18px; }
+  .app-hero h1 .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+  .app-hero__sub { margin-top: 24px; max-width: 46ch; }
+  .app-hero__meta {
+    margin-top: 26px;
+    display: flex;
+    gap: 10px 22px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .app-hero__meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .app-hero__meta span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+  /* ---- Store badges ---- */
+  .badges { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px 12px 18px;
+    border-radius: var(--r-full);
+    background: var(--forest);
+    color: var(--paper);
+    border: 1px solid var(--forest);
+    transition: transform .12s ease, background .15s ease;
+  }
+  .badge:hover { transform: translateY(-1px); background: var(--forest-2); text-decoration: none; }
+  .badge svg { width: 24px; height: 24px; flex: none; }
+  .badge__txt { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+  .badge__txt small { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,250,240,0.6); }
+  .badge__txt b { font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+  .badge--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .badge--ghost:hover { background: var(--paper); border-color: var(--ink); }
+  .badge--ghost .badge__txt small { color: var(--ink-3); }
+
+  /* ---- Device frame ---- */
+  .device {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 1206 / 2622;
+    background: #14130f;
+    border-radius: 13% / 6%;
+    padding: 2.6%;
+    box-shadow: 0 40px 80px -36px rgba(20,19,15,0.55), inset 0 0 0 1.5px rgba(255,255,255,0.06);
+  }
+  .device img { width: 100%; height: 100%; object-fit: cover; border-radius: 10% / 4.6%; display: block; }
+  .app-hero .device { transform: rotate(1.4deg); }
+
+  /* ---- Feature rows ---- */
+  .feat {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+  .feat--flip .feat__media { order: 2; }
+  .feat__body .eyebrow { margin-bottom: 18px; }
+  .feat__body h2 { font-size: clamp(30px, 4vw, 52px); }
+  .feat__body h2 .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+  .feat__body p { color: var(--ink-2); font-size: 18px; line-height: 1.6; margin-top: 18px; max-width: 46ch; }
+  .feat__body .lead-list { margin-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .feat__body .lead-list div {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 16px; color: var(--ink-2); line-height: 1.5;
+  }
+  .feat__body .lead-list div::before {
+    content: "→"; color: var(--orange); font-weight: 600; flex: none;
+    font-family: var(--display);
+  }
+
+  /* floating screenshot on a tinted stage */
+  .stage {
+    position: relative;
+    border-radius: var(--r-xl);
+    padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 52px) 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 320px;
+  }
+  .stage--dark { background: var(--forest); }
+  .stage--dark .stage__grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+  .stage--dark::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 120%, rgba(204,31,58,0.22), transparent 60%);
+  }
+  .stage--cream { background: var(--cream-2); border: 1px solid var(--line); }
+  .stage__shot {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 24px 48px -24px rgba(20,19,15,0.45);
+    border: 1px solid rgba(20,19,15,0.06);
+    border-bottom: none;
+    display: block;
+  }
+  .stage__label {
+    position: absolute; top: 20px; left: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 8px; z-index: 2;
+  }
+  .stage--cream .stage__label { color: var(--ink-3); }
+  .stage__label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+  @media (max-width: 880px) {
+    .feat { grid-template-columns: 1fr; gap: 32px; }
+    .feat--flip .feat__media { order: 0; }
+  }
+
+  /* ---- Wide dark showcase (standings) ---- */
+  .showcase {
+    background: var(--forest);
+    border-radius: var(--r-xl);
+    padding: clamp(36px, 5vw, 72px) clamp(24px, 4vw, 64px) 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  .showcase .eyebrow { color: rgba(255,250,240,0.7); justify-content: center; }
+  .showcase h2 { color: var(--paper); margin-top: 18px; font-size: clamp(30px, 4vw, 52px); }
+  .showcase h2 .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+  .showcase p { color: rgba(255,250,240,0.78); max-width: 56ch; margin: 18px auto 0; font-size: 18px; line-height: 1.55; }
+  .showcase__shot {
+    margin: clamp(36px, 5vw, 60px) auto 0;
+    width: 100%;
+    max-width: 940px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+    display: block;
+  }
+
+  /* ---- App feature grid ---- */
+  .appgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 880px) { .appgrid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .appgrid { grid-template-columns: 1fr; } }
+  .appcard {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .appcard:hover { transform: translateY(-2px); border-color: var(--line); box-shadow: 0 12px 30px -20px rgba(20,19,15,0.25); }
+  .appcard__k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+  .appcard h4 { font-size: 21px; }
+  .appcard p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+
+  /* ---- Gallery ---- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    align-items: start;
+  }
+  .gallery .device { transform: none; max-width: 300px; }
+  .gallery > div:nth-child(2) { margin-top: clamp(0px, 4vw, 48px); }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr 1fr; } .gallery > div:nth-child(3) { display: none; } }
+  @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; } .gallery > div { margin-top: 0 !important; } }
+
+  /* ---- Final CTA ---- */
+  .cta-final {
+    background: var(--forest);
+    border-radius: var(--r-xl);
+    padding: clamp(40px, 6vw, 80px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(204,31,58,0.18), transparent 55%);
+  }
+  .cta-final > * { position: relative; z-index: 1; }
+  .cta-final .eyebrow { color: rgba(255,250,240,0.7); justify-content: center; }
+  .cta-final h2 { color: var(--paper); margin-top: 16px; font-size: clamp(34px, 5vw, 64px); }
+  .cta-final h2 .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+  .cta-final p { color: rgba(255,250,240,0.8); max-width: 44ch; margin: 18px auto 0; font-size: 18px; }
+  .cta-final .badges { justify-content: center; margin-top: 34px; }
+  .cta-final .badge--ghost { color: var(--paper); border-color: rgba(255,250,240,0.25); }
+  .cta-final .badge--ghost:hover { background: rgba(255,250,240,0.08); border-color: rgba(255,250,240,0.5); }
+  .cta-final .badge--ghost .badge__txt small { color: rgba(255,250,240,0.55); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html" aria-label="TTConnect home"><span class="logo__ball" aria-hidden="true"></span><span><b>TT</b><span>Connect</span></span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="leagues.html">Leagues</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="index.html#events">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="https://app.ttconnect.us" target="_blank" rel="noopener">Sign in</a>
+      <a class="btn btn--accent btn--sm" href="#get">Get the app</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="app-hero">
+    <div class="app-hero__inner">
+      <div>
+        <span class="eyebrow">The TTConnect app</span>
+        <h1>Your rating,<br /><span class="accent">every rally.</span></h1>
+        <p class="app-hero__sub lead">Track your league rating as it moves, read honest analytics on who you actually beat, and follow your standings live — from the bench or the bus home.</p>
+        <div class="app-hero__meta">
+          <span>Free to play</span>
+          <span>All levels</span>
+          <span>iOS &amp; Android</span>
+          <span>No ads</span>
+        </div>
+        <div class="badges" id="get">
+          <a class="badge" href="#" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.78c.02 2.3 2.02 3.06 2.04 3.07-.02.05-.32 1.1-1.06 2.18-.64.94-1.3 1.87-2.35 1.89-1.02.02-1.35-.6-2.52-.6-1.17 0-1.54.58-2.5.62-1.01.04-1.78-1.01-2.43-1.94-1.32-1.92-2.33-5.42-.97-7.79.67-1.17 1.88-1.91 3.19-1.93.99-.02 1.93.67 2.53.67.61 0 1.74-.83 2.94-.71.5.02 1.9.2 2.8 1.52-.07.05-1.67.98-1.65 2.93M14.6 6.3c.53-.64.89-1.54.79-2.43-.77.03-1.69.51-2.24 1.16-.49.57-.92 1.48-.81 2.36.85.06 1.73-.43 2.26-1.09"/></svg>
+            <span class="badge__txt"><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="badge" href="#" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.1 13 11.5l-2.6 2.6z" opacity=".9"/><path fill="#ea4335" d="M3.6 2.1 13 11.5 16.3 8.2 5.2 1.9c-.6-.3-1.2-.2-1.6.2z"/><path fill="#fbbc04" d="M13 11.5 3.6 20.9c.4.4 1 .5 1.6.2l11.1-6.3z"/><path fill="#4285f4" d="m16.3 8.2-3.3 3.3 3.3 3.3 4-2.3c.8-.5.8-1.6 0-2z"/></svg>
+            <span class="badge__txt"><small>Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="app-hero__media">
+        <div class="device">
+          <img src="screens/rating-history.png" alt="TTConnect app showing a player's rating history chart, currently 1974, with recent events listed below" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="stats">
+    <div class="stats__grid">
+      <div class="stat"><span class="stat__n">Free</span><span class="stat__l">No subscription</span></div>
+      <div class="stat"><span class="stat__n">All<span class="unit"> levels</span></span><span class="stat__l">First paddle to pro</span></div>
+      <div class="stat"><span class="stat__n">USATT<span class="unit">-aware</span></span><span class="stat__l">Membership lookup</span></div>
+      <div class="stat"><span class="stat__n">EN<span class="unit"> / 中文</span></span><span class="stat__l">Two languages</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURE 1 — rating -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feat">
+        <div class="feat__media">
+          <div class="stage stage--dark">
+            <span class="stage__label">Rating history</span>
+            <div class="stage__grid" aria-hidden="true"></div>
+            <img class="stage__shot" src="screens/rating-chart.png" alt="Rating history card showing a current rating of 1974, down 114 points in 30 days, with a line chart of recent results" />
+          </div>
+        </div>
+        <div class="feat__body">
+          <span class="eyebrow">Know where you stand</span>
+          <h2>Your rating, <span class="accent">event by event.</span></h2>
+          <p>Every league you play moves your TTConnect rating. Watch it climb, dip, and recover across 30 days, 90 days, a year, or your whole history.</p>
+          <div class="lead-list">
+            <div>See your peak, your low, and how many events got you there.</div>
+            <div>Tap any event to see the exact points it earned or cost you.</div>
+            <div>Reflects TTConnect leagues only — never confused with your official USATT rating.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 2 — analytics -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="feat feat--flip">
+        <div class="feat__media">
+          <div class="stage stage--cream">
+            <span class="stage__label">Your analytics</span>
+            <img class="stage__shot" src="screens/analytics.png" alt="Analytics screen showing a 59% win rate over 73 matches, with insights and a breakdown by opponent style" />
+          </div>
+        </div>
+        <div class="feat__body">
+          <span class="eyebrow">The honest numbers</span>
+          <h2>Analytics that <span class="accent">tell the truth.</span></h2>
+          <p>Win rate is just the start. TTConnect breaks down your record by opponent style and equipment, so you know exactly who gives you trouble.</p>
+          <div class="lead-list">
+            <div>Spot your wall — the opponent you just can't seem to beat.</div>
+            <div>Find your strongest matchup and lean into it.</div>
+            <div>See your record vs smooth, short pips, long pips, and unknown setups.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE — standings -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="showcase">
+        <span class="eyebrow">League day</span>
+        <h2>The whole standings, <span class="accent">at a glance.</span></h2>
+        <p>The full round-robin cross-table — every result, every player, positions and points, with start and finish ratings side by side. No spreadsheets, no squinting.</p>
+        <img class="showcase__shot" src="screens/standings.png" alt="A completed Test League standings cross-table showing every player's match results, positions, points, and start-to-finish ratings" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE GRID -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Made to feel <span style="color:var(--orange);font-style:italic;font-weight:500;">like yours.</span></h2>
+        <p>Small touches that make TTConnect quick to open and easy to live in, match after match.</p>
+      </div>
+      <div class="appgrid">
+        <div class="appcard">
+          <span class="appcard__k">Themes</span>
+          <h4>Default, Spin or Rally.</h4>
+          <p>Pick the look that fits your club. Three themes, your call.</p>
+        </div>
+        <div class="appcard">
+          <span class="appcard__k">Dark mode</span>
+          <h4>Light, dark, or system.</h4>
+          <p>Easy on the eyes in a dim gym or a bright lobby.</p>
+        </div>
+        <div class="appcard">
+          <span class="appcard__k">Sign-in</span>
+          <h4>Face ID &amp; remember me.</h4>
+          <p>Open the app and you're in — no password to type at the table.</p>
+        </div>
+        <div class="appcard">
+          <span class="appcard__k">Monthly insights</span>
+          <h4>Your numbers, in your inbox.</h4>
+          <p>Opt in for a monthly recap of your record, trends, and consistency.</p>
+        </div>
+        <div class="appcard">
+          <span class="appcard__k">Languages</span>
+          <h4>English and 中文.</h4>
+          <p>Switch the whole app in a tap.</p>
+        </div>
+        <div class="appcard">
+          <span class="appcard__k">USATT lookup</span>
+          <h4>Your membership, linked.</h4>
+          <p>Pull your USATT status and rating when you have a member number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A quick look.</h2>
+        <p>Built by players, for players — clean screens that get out of the way of the game.</p>
+      </div>
+      <div class="gallery">
+        <div><div class="device"><img src="screens/login.png" alt="TTConnect sign-in screen with the wordmark and Welcome back heading" /></div></div>
+        <div><div class="device"><img src="screens/rating-history.png" alt="Rating history screen with chart and recent events" /></div></div>
+        <div><div class="device"><img src="screens/settings.png" alt="Settings screen showing appearance, theme, mode, language and account options" /></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="cta-final">
+        <span class="eyebrow">Get the app</span>
+        <h2>Game <span class="accent">on.</span></h2>
+        <p>Download TTConnect and bring your rating, your matchups, and your standings to every session.</p>
+        <div class="badges">
+          <a class="badge" href="#" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.78c.02 2.3 2.02 3.06 2.04 3.07-.02.05-.32 1.1-1.06 2.18-.64.94-1.3 1.87-2.35 1.89-1.02.02-1.35-.6-2.52-.6-1.17 0-1.54.58-2.5.62-1.01.04-1.78-1.01-2.43-1.94-1.32-1.92-2.33-5.42-.97-7.79.67-1.17 1.88-1.91 3.19-1.93.99-.02 1.93.67 2.53.67.61 0 1.74-.83 2.94-.71.5.02 1.9.2 2.8 1.52-.07.05-1.67.98-1.65 2.93M14.6 6.3c.53-.64.89-1.54.79-2.43-.77.03-1.69.51-2.24 1.16-.49.57-.92 1.48-.81 2.36.85.06 1.73-.43 2.26-1.09"/></svg>
+            <span class="badge__txt"><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="badge" href="#" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.1 13 11.5l-2.6 2.6z" opacity=".9"/><path fill="#ea4335" d="M3.6 2.1 13 11.5 16.3 8.2 5.2 1.9c-.6-.3-1.2-.2-1.6.2z"/><path fill="#fbbc04" d="M13 11.5 3.6 20.9c.4.4 1 .5 1.6.2l11.1-6.3z"/><path fill="#4285f4" d="m16.3 8.2-3.3 3.3 3.3 3.3 4-2.3c.8-.5.8-1.6 0-2z"/></svg>
+            <span class="badge__txt"><small>Get it on</small><b>Google Play</b></span>
+          </a>
+          <a class="badge badge--ghost" href="https://app.ttconnect.us" target="_blank" rel="noopener" aria-label="Open the web app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>
+            <span class="badge__txt"><small>Or open the</small><b>Web app</b></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html"><span class="logo__ball"></span><span><b>TT</b><span>Connect</span></span></a>
+        <p class="site-footer__about" style="margin-top:18px;">TTConnect helps recreational table tennis players in the United States find clubs, join leagues, and organize friendly play.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="leagues.html">Leagues</a></li><li><a href="clubs.html">Clubs</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#map">Find a club</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="about.html">About us</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="data-delete.html">Delete my account</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="/cdn-cgi/l/email-protection#fa898f8a8a95888eba8e8e999594949f998ed48f89"><span class="__cf_email__" data-cfemail="2b585e5b5b44595f6b5f5f484445454e485f055e58">[email&#160;protected]</span></a></li><li><a href="/cdn-cgi/l/email-protection#2f5c5a5f5f405d5b6f5b5b4c4041414a4c5b015a5c105c5a4d454a4c5b1263465c5b0a1d1f42560a1d1f4c435a4d">List your club</a></li><li><a href="/cdn-cgi/l/email-protection#84f7f1f4f4ebf6f0c4f0f0e7ebeaeae1e7f0aaf1f7bbf7f1e6eee1e7f0b9d4f6e1f7f7a1b6b4edeaf5f1edf6fd">Press</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 TTConnect · Yashwant Technologies Inc.</div>
+      <div>Made for the love of the game</div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/main.js" defer></script>
+</body>
+</html>
