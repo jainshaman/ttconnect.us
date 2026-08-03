@@ -103,18 +103,23 @@ p { margin: 0; }
 .muted { color: var(--ink-3); }
 
 .eyebrow {
-  /* ...keep existing... */
-  align-items: flex-start;   /* was: center */
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
   gap: 10px;
 }
 .eyebrow::before {
   content: "";
   width: 8px;
   height: 8px;
-  margin-top: 3px;           /* add */
-  flex: 0 0 auto;            /* add */
   border-radius: 50%;
-  /* ...keep rest... */
+  background: var(--orange);
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(204, 31, 58, 0.18);
 }
 
 .mono { font-family: var(--mono); }
@@ -521,10 +526,17 @@ p { margin: 0; }
 .league-card__banner.b-orange { background: var(--orange); color: rgba(255,255,255,0.8); }
 .league-card__banner svg { width: 100%; height: 100%; position: absolute; inset: 0; opacity: 0.18; }
 .league-card__chip {
-  /* ...keep existing... */
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  white-space: nowrap;       /* add */
   background: rgba(255,255,255,0.92);
+  color: var(--ink);
+  padding: 5px 9px;
+  border-radius: var(--r-full);
 }
 .league-card__body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .league-card__loc { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; }
@@ -733,7 +745,22 @@ p { margin: 0; }
 }
 .role input:checked + span { background: var(--forest); color: var(--paper); border-color: var(--forest); }
 
+.joinbox__form .field__zip { max-width: 80px; padding-left: 6px; }
+
 @media (max-width: 760px) { .joinbox { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .joinbox { padding: 24px 20px; border-radius: var(--r-lg); }
+  .joinbox > *, .joinbox__form, .joinbox__form .field { min-width: 0; }
+  .joinbox p { max-width: none; }
+  .joinbox__form .field { flex-direction: column; align-items: stretch; border-radius: var(--r-lg); padding: 8px; gap: 4px; }
+  .joinbox__form .field input { padding: 12px 12px; }
+  .joinbox__form .field__zip { max-width: none; padding-left: 12px; border-top: 1px solid var(--line-soft); }
+  .joinbox__form .field .btn { width: 100%; justify-content: center; }
+  .joinbox__form .role { display: grid; grid-template-columns: 1fr 1fr; }
+  .joinbox__form .role label:last-child { grid-column: 1 / -1; }
+  .role span { padding: 12px 8px; font-size: 13px; }
+  .joinbox__form .hint { font-size: 11px; letter-spacing: 0; }
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
