@@ -324,7 +324,7 @@
         <form class="joinbox__form" onsubmit="event.preventDefault(); this.querySelector('.field button').textContent='Sent ✓'; this.querySelector('.field button').disabled=true;">
           <div class="field">
             <input type="email" placeholder="you@example.com" required aria-label="Email" />
-            <input type="text" placeholder="ZIP" required aria-label="ZIP code" pattern="[0-9]{5}" maxlength="5" style="max-width:80px; padding-left:6px;" />
+            <input class="field__zip" type="text" placeholder="ZIP" required aria-label="ZIP code" pattern="[0-9]{5}" maxlength="5" />
             <button class="btn btn--primary" type="submit">Get connected</button>
           </div>
           <div class="role" role="radiogroup" aria-label="I play as">
